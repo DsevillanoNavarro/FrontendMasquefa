@@ -1,0 +1,139 @@
+/* Modal.css - estilo minimalista y limpio */
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background-color: #fff;
+  width: 90%;
+  max-width: 480px;
+  border-radius: 6px;
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
+  font-family: 'Afacad', sans-serif, sans-serif;
+  color: #222;
+  outline: none;
+}
+
+.modal-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.modal-header-container h2 {
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 0;
+  color: #111;
+}
+
+.modal-close-button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.modal-close-button:hover {
+  color: #000;
+}
+
+.modal-body label {
+  display: block;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #444;
+  font-size: 1rem;
+}
+
+.modal-body input[type="text"],
+.modal-body input[type="file"],
+.modal-body textarea {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #222;
+  font-family: inherit;
+  resize: vertical;
+  margin-top: 0.25rem;
+  transition: border-color 0.3s ease;
+}
+
+.modal-body input[type="text"]:focus,
+.modal-body textarea:focus,
+.modal-body input[type="file"]:focus {
+  border-color: #000;
+  outline: none;
+}
+
+.modal-body iframe {
+  border-radius: 4px;
+  border: 1px solid #eee;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 300px;
+}
+
+.modal-body p {
+  color: #555;
+  font-size: 1rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-footer button {
+  background: transparent;
+  border: 1px solid #666;
+  color: #666;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.modal-footer button:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+@media (max-width: 480px) {
+  .modal-container {
+    padding: 1rem 1.2rem;
+  }
+  .modal-footer {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .modal-footer button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,41 @@
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './SobreNosotros.css';
+
+const SobreNosotros = () => {
+  return (
+    <section className="container py-5 sobre-nosotros">
+      <div className="row justify-content-center fade-in">
+        <div className="col-lg-10 text-center">
+          <h1 className="display-5 fw-bold mb-4">SOBRE NOSOTROS</h1>
+          <p className="lead mb-4">
+            Animalistes Masquefa somos una asociación sin ánimo de lucro formada por un grupo de voluntarias y voluntarios. Esta organización se creó como un proyecto social que tenía como objetivo velar y controlar las colonias de gatos de nuestro pueblo, luchando contra el abandono y el maltrato animal. Nuestros esfuerzos van orientados a conseguir y mantener una convivencia equilibrada entre humanos y felinos, intentando controlar las colonias de gatos mediante una alimentación controlada y un proceso de esterilización (aplicando el método CES: Captura, Esterilización y Suelta).
+          </p>
+          <p className="lead">
+            Como en toda asociación sin ánimo de lucro, las personas que gestionan la organización, lo hacen (valga la redundancia) de forma voluntaria, sin retribución económica de ningún tipo. Somos gente comprometida con los animales que trabajamos por el bien de los mismos.
+          </p>
+        </div>
+      </div>
+
+      {/* Google Maps Embebido */}
+      <div className="row justify-content-center mt-5 fade-in">
+        <div className="col-lg-10">
+          <div className="map-responsive rounded-4 shadow">
+            <iframe
+              title="Ubicación Animalistes Masquefa"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.573847833538!2d1.8106568761752735!3d41.50718359124304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496b411a887eb%3A0x5e4a084ce84024c4!2sMasquefa%2C%20Barcelona!5e0!3m2!1ses!2ses!4v1714416800000!5m2!1ses!2ses"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default SobreNosotros;

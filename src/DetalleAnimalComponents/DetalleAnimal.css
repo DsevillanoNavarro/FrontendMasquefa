@@ -1,0 +1,58 @@
+/* Container: sin cambios */
+.AnimalDetail {
+    font-family: 'Afacad', sans-serif;
+    margin-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  /* Fila: ya no centramos verticalmente */
+  
+  /* Título aún más grande */
+  .detail-title {
+    font-size: 4rem;       /* antes 3rem */
+    font-weight: 700;
+    margin-bottom: 1.5rem; /* un poco más de espacio */
+    text-transform: uppercase;
+    text-align: left;      /* siempre a la izquierda */
+  }
+  
+  /* Párrafos descriptivos grandes */
+  .detail-desc {
+    font-size: 1.25rem;    /* antes 1rem */
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: left;      /* asegúrate que nunca se centren */
+  }
+  
+  /* Botón: igual, pero alineado al inicio */
+  .custom-btn {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;       /* un pelín más grande */
+    font-weight: 900;
+    padding: 20px 40px;
+    background-color: #4170E8;
+    color: #fff;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    transition: background-color 0.3s ease;
+    border-radius: 0;
+    margin-top: 2rem;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .custom-btn:hover {
+    background-color: #3055c1;
+  }
+  
+  /* Loading/Error: texto grande */
+  .loading {
+    font-family: 'Afacad', sans-serif;
+    text-align: center;
+    margin: 5rem 0;
+    font-size: 1.5rem;
+  }
+  

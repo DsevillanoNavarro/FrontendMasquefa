@@ -1,0 +1,48 @@
+
+.titulo-afacad {
+  font-family: 'Afacad', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.texto-poppins {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.boton-oscuro {
+  background-color: #333333;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.boton-oscuro:hover {
+  background-color: #4170E8;
+  color: white;
+}
+
+.txtRegistrarse{
+
+    font-size: 20px;
+}
+
+/* Responsivo */
+@media (max-width: 767px) {
+  .titulo-afacad,
+  .texto-poppins {
+    text-align: center;
+  }
+
+  .boton-oscuro {
+    width: 100%;
+  }
+  
+.txtRegistrarse{
+
+    font-size: 16px;
+}
+}
