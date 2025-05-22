@@ -1,14 +1,3 @@
 [build]
   publish = "build"
   command = "CI=false npm run build"
-
-[[redirects]]
-  from   = "/api/*"
-  to     = "https://backendmasquefa.onrender.com/:splat"
-  status = 200       # 200 = proxy (no redirect 3xx)
-  force  = true      # fuerza proxy incluso si /api/ existe en build
-
-[[redirects]]
-  from   = "/*"
-  to     = "/index.html"
-  status = 200
