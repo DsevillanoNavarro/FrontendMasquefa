@@ -16,6 +16,22 @@
   color: #111;
 }
 
+.boton-admin {
+  display: inline-block;
+  background-color: #4170E8;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+.boton-admin:hover {
+  background-color: #305bb2;
+}
+
+
 .profile-info p {
   margin: 0.4rem 0;
   font-weight: 400;

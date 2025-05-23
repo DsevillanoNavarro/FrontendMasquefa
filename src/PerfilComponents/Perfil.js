@@ -88,6 +88,7 @@ export default function Profile() {
         <p><strong>Nombre:</strong> {user.first_name} {user.last_name}</p>
         <p><strong>Email:</strong> {user.email}</p>
       </div>
+      
       {/* Tabs */}
       <div className="profile-tabs">
         {['adopciones','comentarios'].map(tab => (
