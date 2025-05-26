@@ -12,7 +12,7 @@ function ForgotPassword() {
     setError('');
 
     try {
-      await axios.post('http://localhost:8000/api/password-reset/', { email });
+      await axios.post(`${process.env.REACT_APP_API_URL}/password-reset/', { email }`);
       setEnviado(true);
     } catch (err) {
       setError('No se pudo enviar el email. Verifica que sea correcto.');
