@@ -2,12 +2,9 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import Home from './pages/Home';
-import ListadoAnimales from './pages/ListadoAnimales';
-import EditarAnimales from './pages/EditarAnimales';
 import Registro from './pages/Registro';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
-import ListadoNoticias from './pages/ListadoNoticias';
 import Animales from './pages/Animales';
 import Noticias from './pages/Noticias';
 import Contacto from './pages/Contacto';
@@ -89,9 +86,6 @@ function AppContent() {
             {/* Agrupamos rutas protegidas bajo el guard */}
             <Route element={<RequireAuth />}>
               <Route path="/perfil" element={<Perfil />} />
-              <Route path="/listadoanimales" element={<ListadoAnimales />} />
-              <Route path="/editar/:id" element={<EditarAnimales />} />
-              <Route path="/listadoNoticias" element={<ListadoNoticias />} />
               <Route path="/adoptar/:id" element={<Adoptar />} />
               <Route path="/adopcionEnviada" element={<AdopcionEnviada />} />
               

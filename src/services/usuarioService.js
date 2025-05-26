@@ -20,28 +20,20 @@ const createUsuario = (usuarioData) => {
   formData.append('last_name', usuarioData.get('last_name'));
   formData.append('email', usuarioData.get('email'));
   formData.append('password', usuarioData.get('password'));
+  formData.append('recibir_novedades', usuarioData.get('recibir_novedades') === 'true' || usuarioData.get('recibir_novedades') === true ? 'true' : 'false');
 
   return axios.post(API_URL, formData);
 };
 
 // Actualizar un usuario existente
-const updateUsuario = (id, usuarioData) => {
-  const formData = new FormData();
-  formData.append('username', usuarioData.get('username'));
-  formData.append('first_name', usuarioData.get('first_name'));
-  formData.append('last_name', usuarioData.get('last_name'));
-  formData.append('email', usuarioData.get('email'));
-
-  if (usuarioData.get('password')) {
-    formData.append('password', usuarioData.get('password'));
-  }
-
-  return axios.put(`${API_URL}${id}/`, formData, {
+const updateUsuario = (id, formData) => {
+  return axios.patch(`${API_URL}${id}/`, formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
   });
 };
+
 
 // Eliminar un usuario
 const deleteUsuario = (id) => {

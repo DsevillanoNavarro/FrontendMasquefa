@@ -36,11 +36,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
-    document.cookie = 'access_token=; Max-Age=0; path=/';
-    document.cookie = 'refresh_token=; Max-Age=0; path=/';
-    setIsAuthenticated(false);
-    navigate('/login', { replace: true });
+  const logout = async () => {
+    try {
+      await api.post('/logout/'); // <- solicita al backend borrar cookies
+    } catch (err) {
+      console.error('Error al cerrar sesión:', err);
+    } finally {
+      setIsAuthenticated(false);
+      navigate('/', { replace: true });
+    }
   };
 
   return (

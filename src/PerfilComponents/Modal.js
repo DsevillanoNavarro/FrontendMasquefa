@@ -64,10 +64,30 @@ export default function Modal({ isOpen, onClose, type, item, onSave, onDelete })
             <p>¿Seguro que quieres eliminar esta adopción?</p>
           )) ||
           (type === 'editComentario' && (
-            <label>
-              Comentario:
-              <textarea name="texto" value={form.texto} onChange={handleChange} rows={4} />
-            </label>
+            <>
+              {item.parent_contenido && (
+                <p className="text-muted" style={{ marginBottom: '10px' }}>
+                  En respuesta a: <em>"{item.parent_contenido}"</em>
+                </p>
+              )}
+              {item.noticia_titulo && item.noticia_id && (
+                <p className="text-muted" style={{ marginBottom: '10px' }}>
+                  En la noticia:{" "}
+                  <a
+                    href={`/noticias/${item.noticia_id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontWeight: 'bold', color: '#007bff', textDecoration: 'none' }}
+                  >
+                    {item.noticia_titulo}
+                  </a>
+                </p>
+              )}
+              <label>
+                Comentario:
+                <textarea name="texto" value={form.texto} onChange={handleChange} rows={4} />
+              </label>
+            </>
           )) ||
           (type === 'deleteComentario' && (
             <p>¿Seguro que quieres eliminar este comentario?</p>

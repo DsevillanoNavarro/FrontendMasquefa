@@ -12,7 +12,12 @@ const api = axios.create({
  * @returns {Promise<Object>} Usuario serializado
  */
 export function fetchCurrentUser() {
-  return api.get('me/').then(res => res.data);
+  return api.get('me/').then(res => {
+    const user = res.data;
+    // Forzamos el tipo booleano para seguridad
+    user.recibir_novedades = user.recibir_novedades === true || user.recibir_novedades === 'true';
+    return user;
+  });
 }
 
 /**

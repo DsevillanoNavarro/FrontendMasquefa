@@ -8,17 +8,20 @@ import "./DetalleNoticias.css";
 
 const DetalleNoticias = () => {
   const { id } = useParams();
-  const { loading, setLoading } = useLoading();
-  const { isAuthenticated } = useAuth();
+  const { setLoading } = useLoading();
+  const { isAuthenticated, token } = useAuth();
   const navigate = useNavigate();
 
   const [noticia, setNoticia] = useState(null);
   const [comentarios, setComentarios] = useState([]);
+  const [comentariosVisibles, setComentariosVisibles] = useState(5); // paginación
   const [nuevoComentario, setNuevoComentario] = useState("");
   const [comentariosLoading, setComentariosLoading] = useState(false);
   const [comentarioError, setComentarioError] = useState(null);
+  const [comentarioSuccess, setComentarioSuccess] = useState(null);
+  const [responderA, setResponderA] = useState(null);
+  const [respuestaTexto, setRespuestaTexto] = useState("");
 
-  // Cargar noticia
   useEffect(() => {
     setLoading(true);
     noticiaService
@@ -28,7 +31,6 @@ const DetalleNoticias = () => {
       .finally(() => setLoading(false));
   }, [id, setLoading]);
 
-  // Cargar comentarios
   useEffect(() => {
     if (!id) return;
     setComentariosLoading(true);
@@ -49,29 +51,153 @@ const DetalleNoticias = () => {
   };
 
   const handlePublicarComentario = async () => {
+
+    if (!nuevoComentario.trim() || nuevoComentario.length < 5) {
+      setComentarioError("El comentario debe tener al menos 5 caracteres.");
+      return;
+    }
+    
     if (!nuevoComentario.trim()) return;
     setComentarioError(null);
-
+    setComentarioSuccess(null);
+    
+    
+    
     try {
-      const newComment = await comentarioService.crearComentario({
+      const comentarioData = {
         noticia: id,
         contenido: nuevoComentario.trim(),
-      });
-      setComentarios((prev = []) => [newComment, ...prev]);
+      };
+
+      const newComment = await comentarioService.crearComentario(comentarioData, token);
+      setComentarios((prev) => [newComment, ...prev]);
       setNuevoComentario("");
+      setComentarioSuccess("Comentario publicado correctamente.");
     } catch (error) {
-      console.error(error);
-      setComentarioError("Error al publicar comentario");
+      console.error("Error al publicar comentario:", error.response?.data || error.message);
+      const mensaje =
+        error.response?.status === 429
+          ? "Debes esperar 1 minuto entre comentarios."
+          : error.response?.data?.non_field_errors?.join(", ") ||
+            error.response?.data?.detail ||
+            JSON.stringify(error.response?.data) ||
+            "Error al publicar comentario";
+      setComentarioError(mensaje);
     }
   };
 
-  if (loading) return null;
-  if (!noticia) return <p className="loading">Noticia no encontrada</p>;
+  const handleResponder = async (parentId) => {
+
+    if (!respuestaTexto.trim() || respuestaTexto.length < 5) {
+      setComentarioError("La respuesta debe tener al menos 5 caracteres.");
+      return;
+    }
+
+    if (!respuestaTexto.trim()) return;
+    setComentarioError(null);
+    setComentarioSuccess(null);
+
+    try {
+      const comentarioData = {
+        noticia: id,
+        contenido: respuestaTexto.trim(),
+        parent: parentId,
+      };
+
+      const newReply = await comentarioService.crearComentario(comentarioData, token);
+      setComentarios((prev) => [...prev, newReply]);
+      setRespuestaTexto("");
+      setResponderA(null);
+      setComentarioSuccess("Respuesta publicada correctamente.");
+    } catch (err) {
+      console.error("Error al responder comentario:", err.response?.data || err.message);
+      const mensaje =
+        err.response?.status === 429
+          ? "Debes esperar 1 minuto entre comentarios."
+          : err.response?.data?.non_field_errors?.join(", ") ||
+            err.response?.data?.detail ||
+            JSON.stringify(err.response?.data) ||
+            "Error al responder comentario";
+      setComentarioError(mensaje);
+    }
+  };
+
+  const renderComentarios = (lista, parentId = null, nivel = 0) =>
+    lista
+      .filter((c) => c.parent === parentId)
+      .map((comentario) => (
+        <div
+          key={comentario.id}
+          className="mb-3 pb-2"
+          style={{ marginLeft: nivel * 20 }}
+        >
+          <div className="border-start ps-3 d-flex align-items-start gap-2">
+            {comentario.usuario_foto ? (
+              <img
+                src={comentario.usuario_foto}
+                alt={comentario.usuario_username}
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                }}
+              />
+            ) : (
+              <div
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  backgroundColor: "#ccc",
+                }}
+              />
+            )}
+            <div>
+              <strong>{comentario.usuario_username}</strong>{" "}
+              <small className="text-muted">
+                - {new Date(comentario.fecha_hora).toLocaleString()}
+              </small>
+              <p>{comentario.contenido}</p>
+              {isAuthenticated && (
+                <button
+                  className="btn btn-sm btn-outline-secondary mb-2"
+                  onClick={() =>
+                    setResponderA(responderA === comentario.id ? null : comentario.id)
+                  }
+                >
+                  {responderA === comentario.id ? "Cancelar" : "Responder"}
+                </button>
+              )}
+              {responderA === comentario.id && (
+                <div className="mb-3">
+                  <textarea
+                    className="form-control mb-2"
+                    placeholder="Escribe tu respuesta..."
+                    rows="2"
+                    value={respuestaTexto}
+                    onChange={(e) => setRespuestaTexto(e.target.value)}
+                  />
+                  <button
+                    className="btn btn-sm btn-primary"
+                    onClick={() => handleResponder(comentario.id)}
+                  >
+                    Enviar respuesta
+                  </button>
+                </div>
+              )}
+              {renderComentarios(lista, comentario.id, nivel + 1)}
+            </div>
+          </div>
+        </div>
+      ));
+  
+
+  if (!noticia) return null;
 
   return (
     <div className="container NoticiaDetail mt-5 pt-5 slide-down-fade">
       <div className="row align-items-start">
-        {/* Imagen */}
         <div className="col-12 col-md-6 mb-4 mb-md-0">
           <img
             src={noticia.imagen}
@@ -80,7 +206,6 @@ const DetalleNoticias = () => {
           />
         </div>
 
-        {/* Texto */}
         <div className="col-12 col-md-6">
           <h1 className="detail-title">{noticia.titulo}</h1>
           <p className="detail-date">
@@ -94,9 +219,14 @@ const DetalleNoticias = () => {
         </div>
       </div>
 
-      {/* Comentarios */}
       <div className="comments-section mt-5">
         <h3>Comentarios</h3>
+        {comentarioSuccess && (
+          <div className="alert alert-success">{comentarioSuccess}</div>
+        )}
+        {comentarioError && (
+          <div className="alert alert-danger">{comentarioError}</div>
+        )}
         {isAuthenticated ? (
           <>
             <textarea
@@ -106,26 +236,30 @@ const DetalleNoticias = () => {
               value={nuevoComentario}
               onChange={(e) => setNuevoComentario(e.target.value)}
             />
-            <button className="btn btn-primary mb-3" onClick={handlePublicarComentario}>
+            <button
+              className="btn btn-primary mb-3"
+              onClick={handlePublicarComentario}
+            >
               Publicar
             </button>
-            {comentarioError && (
-              <div className="alert alert-danger">{comentarioError}</div>
-            )}
             {comentariosLoading ? (
               <p>Cargando comentarios...</p>
             ) : comentarios.length === 0 ? (
               <p>No hay comentarios aún.</p>
             ) : (
-              comentarios.map((comentario) => (
-                <div key={comentario.id} className="mb-3 border-bottom pb-2">
-                  <strong>{comentario.usuario}</strong>{" "}
-                  <small className="text-muted">
-                    - {comentario.tiempo_transcurrido}
-                  </small>
-                  <p>{comentario.contenido}</p>
-                </div>
-              ))
+              <>
+                {renderComentarios(comentarios)}
+                {comentariosVisibles < comentarios.length && (
+                  <div className="text-center mt-3">
+                    <button
+                      className="btn btn-outline-secondary"
+                      onClick={() => setComentariosVisibles((prev) => prev + 5)}
+                    >
+                      Ver más comentarios
+                    </button>
+                  </div>
+                )}
+              </>
             )}
           </>
         ) : (

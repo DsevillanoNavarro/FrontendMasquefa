@@ -11,11 +11,24 @@ const Contacto = () => {
   };
 
   const handleSubmit = (e) => {
+
+    if (!form.nombre.trim()) {
+      alert("El nombre es obligatorio.");
+      return;
+    }
+    if (!form.mensaje.trim() || form.mensaje.length < 10) {
+      alert("El mensaje debe tener al menos 10 caracteres.");
+      return;
+    }
+    
     e.preventDefault();
     console.log('Formulario enviado:', form);
     setEnviado(true);
     setTimeout(() => setEnviado(false), 4000);
     setForm({ nombre: '', mensaje: '' });
+
+    
+
   };
 
   return (

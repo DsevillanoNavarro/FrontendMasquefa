@@ -2,6 +2,8 @@
 
 .NoticiaDetail {
   font-family: 'Afacad', sans-serif;
+  background-color: #fff;
+  padding: 2rem;
 }
 
 .detail-title {
@@ -9,6 +11,8 @@
   margin-bottom: 1rem;
   text-transform: uppercase;
   text-align: left;
+  font-weight: bold;
+  color: #111;
 }
 
 .detail-date {
@@ -21,4 +25,103 @@
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
+  color: #222;
+}
+
+/* ======== Comentarios ======== */
+
+.comentarios-section {
+  margin-top: 3rem;
+  border-top: 1px solid #ddd;
+  padding-top: 2rem;
+}
+
+.comentario-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.comentario-card p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.comentario-autor {
+  font-weight: 600;
+  color: #111;
+}
+
+.comentario-fecha {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+textarea.form-control {
+  font-family: 'Afacad', sans-serif;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+
+textarea.form-control:focus {
+  border-color: #4170E8;
+  outline: none;
+}
+
+.btn.btn-primary {
+  background-color: #4170E8;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.btn.btn-primary:hover {
+  background-color: #305bb2;
+}
+
+.btn-outline-secondary {
+  border: 1px solid #ccc;
+  color: #333;
+  background: transparent;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #eee;
+  color: #000;
+}
+
+.alert.alert-info {
+  font-family: 'Afacad', sans-serif;
+  background-color: #e7f3ff;
+  border: 1px solid #b3d8ff;
+  color: #0c4a6e;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.btn-outline-primary {
+  color: #4170E8;
+  border: 1px solid #4170E8;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: #4170E8;
+  color: white;
 }

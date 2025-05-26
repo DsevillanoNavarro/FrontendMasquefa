@@ -1,8 +1,8 @@
 // src/components/ResetPassword.js
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import './ResetPassword.css';
+import { api } from '../services/loginService'; // Usa instancia con baseURL
 
 export default function ResetPassword() {
   const { uidb64, token } = useParams();
@@ -15,15 +15,16 @@ export default function ResetPassword() {
     e.preventDefault();
     setLoading(true);
     setError('');
+    setMessage('');
     try {
-      const res = await axios.post('/api/password-reset-confirm/', {
+      const res = await api.post('/password-reset-confirm/', {
         uidb64,
         token,
         new_password: password
       });
-      setMessage(res.data.detail);
+      setMessage(res.data.detail || 'Contraseña cambiada correctamente.');
     } catch (err) {
-      setError(err.response?.data.detail || 'Error inesperado');
+      setError(err.response?.data?.detail || 'Error inesperado');
     } finally {
       setLoading(false);
     }
@@ -53,7 +54,9 @@ export default function ResetPassword() {
       {error && <p className="login-error">{error}</p>}
       {message && <p className="login-success">{message}</p>}
       <div className="login-links">
-        <a href="/login" className="login-link">¿Recordaste tu contraseña? Inicia sesión</a>
+        <a href="/login" className="login-link">
+          ¿Recordaste tu contraseña? Inicia sesión
+        </a>
       </div>
     </div>
   );

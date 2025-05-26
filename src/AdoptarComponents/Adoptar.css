@@ -1,0 +1,159 @@
+.adoptar-wrapper {
+    padding-top: 5rem;
+    padding-inline: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 5%;
+  }
+  
+  .adoptar-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+  
+  .adoptar-left,
+  .adoptar-right {
+    flex: 1 1 450px;
+  }
+  
+  .adoptar-img {
+    width: 100%;
+    max-height: 70%;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+  
+  .adoptar-info {
+    margin-top: 1rem;
+    padding: 1.2rem;
+    background-color: #f4f4f4;
+    border-radius: 6px;
+    line-height: 1.6;
+  }
+  
+  .adoptar-right {
+    padding-left: 2rem;
+    border-left: 1px solid #ddd;
+  }
+  
+  .adoptar-desc {
+    margin: 1rem 0;
+    color: #333;
+    font-size: 0.95rem;
+  }
+  
+  .download-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #0072ce;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s ease;
+  }
+  
+  .download-link:hover {
+    border-color: #0072ce;
+  }
+  
+  .custom-btn {
+    background-color: #0072ce;
+    color: white;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-btn:hover {
+    background-color: #005ea6;
+  }
+  
+  .form-label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  input[type="file"] {
+    border: 1px solid #ccc;
+    padding: 0.4rem;
+    border-radius: 6px;
+    background-color: white;
+  }
+  
+
+  .hidden-input {
+    display: none;
+  }
+  
+  .custom-file-label {
+    display: inline-block;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: #495057;
+  }
+  
+  .custom-file-label:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .archivo-nombre {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #444;
+  }
+  
+  .archivo-nombre.muted {
+    color: #888;
+    font-style: italic;
+  }
+  
+  .info-adopcion {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 1.2rem 1.5rem;
+    border-radius: 6px;
+    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .info-adopcion h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: #1e1e1e;
+  }
+  
+  .info-adopcion h5 {
+    font-size: 1.05rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #1e1e1e;
+  }
+  
+  .adopcion-requisitos {
+    padding-left: 1.2rem;
+    margin: 0;
+  }
+  
+  .adopcion-requisitos li {
+    margin-bottom: 0.4rem;
+    list-style-type: disc;
+  }
+  
+  .adopcion-footer {
+    font-style: italic;
+    color: #555;
+  }
+  

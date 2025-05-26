@@ -25,47 +25,39 @@ const getComentarios = async (filters = {}) => {
  * Obtener comentarios de un usuario autenticado (usa el username obtenido del perfil)
  * @returns {Promise<Array>} Comentarios filtrados
  */
-const getComentariosPorUsuario = async () => {
-  // Obtener el username del usuario autenticado
-  const user = await fetchCurrentUser();
-  const username = user.username;
+const getComentariosPorUsuario = async (usuarioId) => {
   try {
-    let comments = await getComentarios({ usuario: username });
-    // Si la API no filtra correctamente
-    if (comments.some(c => c.usuario !== username)) {
+    let comments = await getComentarios({ usuario: usuarioId });
+    if (comments.some(c => c.usuario !== usuarioId)) {
       const all = await getComentarios();
-      return all.filter(c => c.usuario === username);
+      return all.filter(c => c.usuario === usuarioId);
     }
     return comments;
   } catch {
     const all = await getComentarios();
-    return all.filter(c => c.usuario === username);
+    return all.filter(c => c.usuario === usuarioId);
   }
 };
+
 
 /**
  * Obtener comentarios de una noticia concreta
  */
 const getComentariosPorNoticia = async (noticiaId) => {
-  try {
-    let comments = await getComentarios({ noticia: noticiaId });
-    if (comments.some(c => c.noticia !== noticiaId)) {
-      const all = await getComentarios();
-      return all.filter(c => c.noticia === noticiaId);
-    }
-    return comments;
-  } catch {
-    const all = await getComentarios();
-    return all.filter(c => c.noticia === noticiaId);
-  }
+  const all = await getComentarios();
+  return all.filter(c => String(c.noticia) === String(noticiaId));
 };
+
 
 /**
  * Crear un nuevo comentario
  */
-const crearComentario = async (comentarioData) => {
+const crearComentario = async (comentarioData, token) => {
   const response = await axios.post(API_URL, comentarioData, {
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,  // asegúrate de pasar el token aquí
+    },
     withCredentials: true,
   });
   return response.data;
