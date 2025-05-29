@@ -15,6 +15,7 @@ const AnimalDetail = () => {
   const navigate = useNavigate();
   const { loading, setLoading } = useLoading();          // <-- usamos el contexto
   const [animal, setAnimal] = useState(null);
+  
 
   useEffect(() => {
     // arranca loading
