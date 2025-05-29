@@ -125,6 +125,14 @@
   border-color: #000;
 }
 
+.modal-footer button:disabled {
+  background-color: #e0e0e0;
+  color: #aaa;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+
 @media (max-width: 480px) {
   .modal-container {
     padding: 1rem 1.2rem;

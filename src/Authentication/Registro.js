@@ -10,11 +10,14 @@ const UsuarioForm = () => {
     last_name: '',
     email: '',
     password: '',
-    receive_news: false
+    receive_news: false,
+    accept_terms: false
+    
   });
 
   const [error, setError] = useState('');
   const [formErrors, setFormErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
 
   const handleChange = e => {
@@ -28,25 +31,54 @@ const UsuarioForm = () => {
   const validar = () => {
     const errors = {};
   
-    if (!form.username.trim() || form.username.length < 3) {
-      errors.username = 'El usuario debe tener al menos 3 caracteres.';
+    // Nombre de usuario
+    if (!form.username.trim()) {
+      errors.username = 'Debes introducir un nombre de usuario.';
+    } else if (form.username.length < 3) {
+      errors.username = 'El nombre de usuario debe tener al menos 3 caracteres.';
+    } else if (/\s/.test(form.username)) {
+      errors.username = 'El nombre de usuario no puede contener espacios.';
     }
   
-    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      errors.email = 'Introduce un correo válido.';
+    // Nombre
+    if (!form.first_name.trim()) {
+      errors.first_name = 'El nombre es obligatorio.';
     }
   
-    if (
-      !form.password ||
-      form.password.length < 8 ||
-      !/[A-Z]/.test(form.password) ||
-      !/\d/.test(form.password)
-    ) {
-      errors.password = 'La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.';
+    // Apellido
+    if (!form.last_name.trim()) {
+      errors.last_name = 'El apellido es obligatorio.';
+    }
+  
+    // Correo electrónico
+    if (!form.email.trim()) {
+      errors.email = 'Debes introducir un correo electrónico.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      errors.email = 'Introduce un correo electrónico válido (ej. usuario@ejemplo.com).';
+    }
+  
+    // Contraseña
+    if (!form.password) {
+      errors.password = 'Debes introducir una contraseña.';
+    } else {
+      const pass = form.password;
+      if (pass.length < 8) {
+        errors.password = 'La contraseña debe tener al menos 8 caracteres.';
+      } else if (!/[A-Z]/.test(pass)) {
+        errors.password = 'La contraseña debe incluir al menos una letra mayúscula.';
+      } else if (!/\d/.test(pass)) {
+        errors.password = 'La contraseña debe incluir al menos un número.';
+      }
+    }
+  
+    // Aceptar términos
+    if (!form.accept_terms) {
+      errors.accept_terms = 'Debes aceptar los términos y condiciones para continuar.';
     }
   
     return errors;
   };
+  
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -57,16 +89,27 @@ const UsuarioForm = () => {
     if (Object.keys(errores).length > 0) return;
 
     const formData = new FormData();
-    Object.entries(form).forEach(([key, value]) =>
-      formData.append(nameConversion(key), value)
-    );
+    Object.entries(form).forEach(([key, value]) => {
+      if (key !== 'accept_terms') {
+        formData.append(nameConversion(key), value);
+      }
+    });
+    
 
     try {
       await UsuarioService.createUsuario(formData);
-      navigate('/perfil');
+      setSuccessMessage("Registro exitoso. Serás redirigido al login en unos segundos...");
+  
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000); // redirige después de 3 segundos
+    
     } catch (err) {
-      console.error(err);
-      setError(err.response?.data?.detail || 'Error al crear usuario');
+      const backendMessage =
+        err.response?.data?.message ||
+        err.response?.data?.error ||
+        "No se pudo completar el registro. Verifica los datos ingresados o intenta más tarde.";
+      setError(backendMessage);
     }
   };
 
@@ -87,7 +130,7 @@ const UsuarioForm = () => {
         required
         className="login-input"
       />
-      {formErrors.username && <p className="login-error">{formErrors.username}</p>}
+      {formErrors.username && <p className="alert-message alert-error">{formErrors.username}</p>}
 
       <input
         type="text"
@@ -97,6 +140,8 @@ const UsuarioForm = () => {
         placeholder="Nombre"
         className="login-input"
       />
+      {formErrors.first_name && <p className="alert-message alert-error">{formErrors.first_name}</p>}
+
 
       <input
         type="text"
@@ -106,6 +151,8 @@ const UsuarioForm = () => {
         placeholder="Apellido"
         className="login-input"
       />
+      {formErrors.last_name && <p className="alert-message alert-error">{formErrors.last_name}</p>}
+
 
       <input
         type="email"
@@ -116,7 +163,7 @@ const UsuarioForm = () => {
         required
         className="login-input"
       />
-      {formErrors.email && <p className="login-error">{formErrors.email}</p>}
+      {formErrors.email && <p className="alert-message alert-error">{formErrors.email}</p>}
 
       <input
         type="password"
@@ -127,7 +174,7 @@ const UsuarioForm = () => {
         required
         className="login-input"
       />
-      {formErrors.password && <p className="login-error">{formErrors.password}</p>}
+      {formErrors.password && <p className="alert-message alert-error">{formErrors.password}</p>}
 
       <div className="login-checkbox">
         <label>
@@ -139,13 +186,31 @@ const UsuarioForm = () => {
           />{' '}
           Deseo recibir noticias de la protectora
         </label>
+        <div className="login-checkbox">
+        <label>
+            <input
+              type="checkbox"
+              name="accept_terms"
+              checked={form.accept_terms}
+              onChange={handleChange}
+            />{' '}
+            Acepto la <a href="/privacidad" target="_blank" rel="noopener noreferrer">política de privacidad</a> y los <a href="/terminos" target="_blank" rel="noopener noreferrer">términos de uso</a>.
+          </label>
+        </div>
+        {formErrors.accept_terms && (
+          <p className="alert-message alert-error">{formErrors.accept_terms}</p>
+        )}
       </div>
 
       <button type="submit" className="login-btn">
         Registrar
       </button>
 
-      {error && <p className="login-error">{error}</p>}
+      {successMessage && (
+  <p className="alert-message alert-success">{successMessage}</p>
+)}
+{error && <p className="alert-message alert-error">{error}</p>}
+
 
       <div className="login-links">
         <p><a href="/login" className="login-link">¿Ya tienes cuenta? Inicia Sesión</a></p>

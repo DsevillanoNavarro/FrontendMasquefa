@@ -1,4 +1,6 @@
+// src/components/GatosComponent.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import MiniCat from '../Lottie/MiniCat.json';
 
@@ -29,19 +31,20 @@ const GatosComponent = () => {
         </video>
       </div>
 
-      <div className="position-absolute bottom-0 start-0 p-5 text-start" style={{ maxWidth: '500px', zIndex: 2, marginLeft:'8.2%'}}>
+      <div className="position-absolute bottom-0 start-0 p-5 text-start" style={{ maxWidth: '500px', zIndex: 2, marginLeft:'8.2%' }}>
         <h1 style={{ fontFamily: 'Afacad, sans-serif', fontSize: '3rem' }}>Únete a Nosotros</h1>
         <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '1.25rem' }}>
           Ayuda a cambiar vidas. Adopta, sé voluntario o dona.<br />
           ¡Juntos hacemos la diferencia!
         </p>
-        <a
-          href="#"
+
+        <Link
+          to="/animales"
           className="text-white fw-bold d-inline-block mt-2"
           style={{ fontFamily: 'Poppins, sans-serif', textDecoration: 'none', fontSize: '1.1rem' }}
         >
           Ver Nuestros Gatos <span style={{ display: 'inline-block', transform: 'scaleX(1.5)', marginLeft: '8px' }}>→</span>
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -25,6 +25,9 @@ import { useLoading } from './contexts/LoadingContext';
 import GlobalLoader from './LoadingComponents/GlobalLoader';
 import { api } from './services/loginService';
 import ForgotPassword from './pages/ForgotPassword';
+import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
+import TerminosYCondiciones from './pages/TerminosYCondiciones';
+
 // Guard para rutas privadas
 function RequireAuth() {
   const [allowed, setAllowed] = React.useState(null);
@@ -83,6 +86,8 @@ function AppContent() {
             <Route path="/logout" element={<Logout />} />
             <Route path="/forgotPassword" element={<ForgotPassword />} />
             <Route path="/resetPassword/:uidb64/:token" element={<ResetPassword />} />
+            <Route path="/privacidad" element={<PoliticaPrivacidad />} />
+            <Route path="/terminos" element={<TerminosYCondiciones />} />
             {/* Agrupamos rutas protegidas bajo el guard */}
             <Route element={<RequireAuth />}>
               <Route path="/perfil" element={<Perfil />} />

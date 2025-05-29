@@ -39,6 +39,21 @@ body, html {
 }
 
 
+/* Mensajes.css */
+.alert-message {
+  font-family: 'Afacad', sans-serif;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.alert-success {
+  color: green;
+}
+
+.alert-error {
+  color: red;
+}
 
 
 

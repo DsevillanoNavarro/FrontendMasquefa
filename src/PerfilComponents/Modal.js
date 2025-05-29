@@ -67,7 +67,12 @@ export default function Modal({ isOpen, onClose, type, item, onSave, onDelete })
             <>
               {item.parent_contenido && (
                 <p className="text-muted" style={{ marginBottom: '10px' }}>
-                  En respuesta a: <em>"{item.parent_contenido}"</em>
+                  En respuesta a:{" "}
+                  <em>
+                    "{item.parent_contenido.length > 50
+                      ? item.parent_contenido.slice(0, 50).trim() + '…'
+                      : item.parent_contenido}"
+                  </em>
                 </p>
               )}
               {item.noticia_titulo && item.noticia_id && (
@@ -96,13 +101,27 @@ export default function Modal({ isOpen, onClose, type, item, onSave, onDelete })
 
         <footer className="modal-footer">
           <button onClick={onClose}>Cancelar</button>
-          {(type.startsWith('edit') && <button onClick={handleSave}>Guardar</button>) ||
-           (type.startsWith('delete') && <button onClick={handleDelete}>Eliminar</button>)}
-        </footer>
-      </div>
-    </div>
-  );
-}
+          {type.startsWith('edit') && (
+              <button
+                onClick={handleSave}
+                disabled={
+                  (type === 'editAdopcion' && !form.pdf) ||
+                  (type === 'editComentario' && form.texto.trim() === item.contenido.trim())
+                }
+              >
+                Guardar
+              </button>
+            )}
+
+            {type.startsWith('delete') && (
+              <button onClick={handleDelete}>Eliminar</button>
+            )}
+
+                    </footer>
+                  </div>
+                </div>
+              );
+            }
 
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,

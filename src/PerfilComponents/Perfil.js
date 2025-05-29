@@ -9,6 +9,8 @@ import './Perfil.css';
 import { Pencil, Trash } from 'react-bootstrap-icons';
 import { useAuth } from '../contexts/AuthContext'; // 👈 importamos logout
 import usuarioService from '../services/usuarioService';
+import { useLoading } from '../contexts/LoadingContext';
+import GlobalLoader from '../LoadingComponents/GlobalLoader';
 
 export default function Profile() {
   const { user, loading, error } = useCurrentUser();
@@ -18,8 +20,20 @@ export default function Profile() {
   const [comentarios, setComentarios] = useState([]);
   const [loadingData, setLoadingData] = useState(false);
   const [dataError, setDataError] = useState(null);
+  const [mensaje, setMensaje] = useState('');
+  
+  const { setLoading: setGlobalLoading } = useLoading();
+
+  useEffect(() => {
+    setGlobalLoading(loading);
+  }, [loading, setGlobalLoading]);
+
+
+  
 
   const [modalConfig, setModalConfig] = useState({ isOpen: false, type: null, item: null });
+
+  
 
   useEffect(() => {
     if (!user) return;
@@ -79,29 +93,73 @@ export default function Profile() {
   const handleModalSave = (type, item, form) => {
     if (type === 'editAdopcion') {
       const formData = new FormData();
-      formData.append('aceptada', form.estado);
       if (form.pdf) formData.append('contenido', form.pdf);
+  
       adopcionService.actualizarAdopcionConPdf(item.id, formData)
-        .then(u => setAdopciones(curr => curr.map(a => a.id === u.id ? { ...a, aceptada: u.aceptada, contenido: u.contenido } : a)))
-        .finally(closeModal);
+        .then(u => {
+          setAdopciones(curr =>
+            curr.map(a => a.id === u.id ? { ...a, contenido: u.contenido } : a)
+          );
+          setMensaje('✅ Adopción actualizada correctamente.');
+        })
+        .catch(() => {
+          setMensaje('❌ Error al actualizar la adopción.');
+        })
+        .finally(() => {
+          closeModal();
+          setTimeout(() => setMensaje(''), 4000); // limpiar mensaje después de 4 seg
+        });
     }
+  
     if (type === 'editComentario') {
       comentarioService.actualizarComentario(item.id, { contenido: form.texto })
-        .then(() => setComentarios(curr => curr.map(c => c.id === item.id ? { ...c, contenido: form.texto } : c)))
-        .finally(closeModal);
+        .then(() => {
+          setComentarios(curr =>
+            curr.map(c => c.id === item.id ? { ...c, contenido: form.texto } : c)
+          );
+          setMensaje('✅ Comentario actualizado correctamente.');
+        })
+        .catch(() => {
+          setMensaje('❌ Error al actualizar el comentario.');
+        })
+        .finally(() => {
+          closeModal();
+          setTimeout(() => setMensaje(''), 4000);
+        });
     }
   };
+  
+  
 
   const handleModalDelete = (type, item) => {
     if (type === 'deleteAdopcion') {
       adopcionService.eliminarAdopcion(item.id)
-        .then(() => setAdopciones(curr => curr.filter(a => a.id !== item.id)))
-        .finally(closeModal);
+        .then(() => {
+          setAdopciones(curr => curr.filter(a => a.id !== item.id));
+          setMensaje('✅ Adopción eliminada correctamente.');
+        })
+        .catch(() => {
+          setMensaje('❌ Error al eliminar la adopción.');
+        })
+        .finally(() => {
+          closeModal();
+          setTimeout(() => setMensaje(''), 4000);
+        });
     }
+  
     if (type === 'deleteComentario') {
       comentarioService.eliminarComentario(item.id)
-        .then(() => setComentarios(curr => curr.filter(c => c.id !== item.id)))
-        .finally(closeModal);
+        .then(() => {
+          setComentarios(curr => curr.filter(c => c.id !== item.id));
+          setMensaje('✅ Comentario eliminado correctamente.');
+        })
+        .catch(() => {
+          setMensaje('❌ Error al eliminar el comentario.');
+        })
+        .finally(() => {
+          closeModal();
+          setTimeout(() => setMensaje(''), 4000);
+        });
     }
   };
 
@@ -169,6 +227,15 @@ export default function Profile() {
           </button>
         ))}
       </div>
+      {mensaje && (
+  <div
+    className={`alert-message ${
+      mensaje.startsWith('✅') ? 'alert-success' : 'alert-error'
+    }`}
+  >
+    {mensaje.replace('✅', '').replace('❌', '').trim()}
+  </div>
+)}
 
       {/* Contenido pestaña */}
       <div className="profile-tab-content">
@@ -225,6 +292,8 @@ export default function Profile() {
         onSave={handleModalSave}
         onDelete={handleModalDelete}
       />
+      
+
     </div>
   );
 }

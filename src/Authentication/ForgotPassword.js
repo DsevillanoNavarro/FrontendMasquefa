@@ -23,7 +23,7 @@ function ForgotPassword() {
     <div className="forgot-container slide-down-fade">
       <h1 className="forgot-title">¿Olvidaste tu contraseña?</h1>
       {enviado ? (
-        <p className="forgot-success">
+        <p className="alert-message alert-success">
           📧 Si el email está registrado, recibirás instrucciones para restablecer tu contraseña.
         </p>
       ) : (
@@ -39,7 +39,7 @@ function ForgotPassword() {
           <button type="submit" className="forgot-btn">Enviar</button>
         </form>
       )}
-      {error && <p className="forgot-error">{error}</p>}
+      {error && <p className="alert-message alert-error">{error}</p>}
       <div className="forgot-links">
         <a href="/login" className="forgot-link">Volver al inicio de sesión</a>
       </div>

@@ -51,8 +51,8 @@ export default function ResetPassword() {
           {loading ? 'Enviando...' : 'Cambiar contraseña'}
         </button>
       </form>
-      {error && <p className="login-error">{error}</p>}
-      {message && <p className="login-success">{message}</p>}
+      {error && <p className="alert-message alert-success">{error}</p>}
+      {message && <p className="alert-message alert-error">{message}</p>}
       <div className="login-links">
         <a href="/login" className="login-link">
           ¿Recordaste tu contraseña? Inicia sesión

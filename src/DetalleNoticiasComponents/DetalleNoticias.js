@@ -129,7 +129,7 @@ const DetalleNoticias = () => {
         <div
           key={comentario.id}
           className="mb-3 pb-2"
-          style={{ marginLeft: nivel * 20 }}
+          style={{ marginLeft: Math.min(nivel, 3) * 20 }}
         >
           <div className="border-start ps-3 d-flex align-items-start gap-2">
             {comentario.usuario_foto ? (
@@ -153,12 +153,13 @@ const DetalleNoticias = () => {
                 }}
               />
             )}
-            <div>
-              <strong>{comentario.usuario_username}</strong>{" "}
-              <small className="text-muted">
-                - {new Date(comentario.fecha_hora).toLocaleString()}
-              </small>
-              <p>{comentario.contenido}</p>
+            <div className="comentario-contenido-box">
+                <strong>{comentario.usuario_username}</strong>{" "}
+                <small className="text-muted">
+                  - {new Date(comentario.fecha_hora).toLocaleString()}
+                </small>
+                <p className="comentario-texto">{comentario.contenido}</p>
+
               {isAuthenticated && (
                 <button
                   className="btn btn-sm btn-outline-secondary mb-2"
@@ -222,10 +223,10 @@ const DetalleNoticias = () => {
       <div className="comments-section mt-5">
         <h3>Comentarios</h3>
         {comentarioSuccess && (
-          <div className="alert alert-success">{comentarioSuccess}</div>
+          <div className="alert-message alert-success">{comentarioSuccess}</div>
         )}
         {comentarioError && (
-          <div className="alert alert-danger">{comentarioError}</div>
+          <div className="alert-message alert-error">{comentarioError}</div>
         )}
         {isAuthenticated ? (
           <>
@@ -249,16 +250,6 @@ const DetalleNoticias = () => {
             ) : (
               <>
                 {renderComentarios(comentarios)}
-                {comentariosVisibles < comentarios.length && (
-                  <div className="text-center mt-3">
-                    <button
-                      className="btn btn-outline-secondary"
-                      onClick={() => setComentariosVisibles((prev) => prev + 5)}
-                    >
-                      Ver más comentarios
-                    </button>
-                  </div>
-                )}
               </>
             )}
           </>

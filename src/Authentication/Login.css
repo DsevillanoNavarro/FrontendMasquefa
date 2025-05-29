@@ -14,12 +14,7 @@
     text-align: center;
     }
     
-    .login-error {
-      color: red;
-      font-size: 0.9rem;
-      margin-top: 4px;
-      text-align: left;
-    }
+
     
     .login-input {
     width: 100%;
@@ -59,13 +54,7 @@
     cursor: not-allowed;
     }
     
-    .login-error {
-    font-family: 'Afacad', sans-serif;
-    color: red;
-    font-size: 1.25rem;
-    margin-top: 1rem;
-    text-align: center;
-    }
+
     
     /* Optional animation class */
     .slide-down-fade {

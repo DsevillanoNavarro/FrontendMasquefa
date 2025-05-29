@@ -53,12 +53,19 @@
     cursor: not-allowed;
   }
   
-  .login-error {
+  .alert-error {
     font-family: 'Afacad', sans-serif;
-    color: red;
     font-size: 1.25rem;
     margin-top: 1rem;
     text-align: center;
+  }
+  
+  .alert-success {
+    color: green;
+  }
+
+  .alert-error {
+    color: red;
   }
   
   .slide-down-fade {

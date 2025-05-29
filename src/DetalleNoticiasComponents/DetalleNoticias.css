@@ -125,3 +125,19 @@ textarea.form-control:focus {
   background-color: #4170E8;
   color: white;
 }
+
+/* Contenedor del comentario: fuerza ancho limitado y corte de palabras largas */
+.comentario-contenido-box {
+  max-width: 100%;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+
+  /* 👇 ESTA PARTE ES CRUCIAL 👇 */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;        /* Fuerza corte en palabras largas */
+  white-space: pre-wrap;         /* Respeta saltos de línea y permite múltiples líneas */
+}

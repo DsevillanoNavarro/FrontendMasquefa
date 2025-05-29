@@ -47,9 +47,10 @@ const Adoptar = () => {
       setError("Debes iniciar sesión para poder adoptar.");
       return;
     }
-
+  
     setSubmitting(true);
     setError(null);
+  
     try {
       await adopcionService.crearAdopcion({
         animal: animal.id,
@@ -58,16 +59,18 @@ const Adoptar = () => {
       });
       navigate("/adopcionEnviada", { state: { animal } });
     } catch (err) {
-      console.error(err);
       const backendMessage =
-        err.response?.data?.error ||
         err.response?.data?.message ||
-        "Error al enviar solicitud.";
+        err.response?.data?.detail ||
+        err.response?.data?.error ||
+        "Ya has enviado una solicitud para este animal.";
+    
       setError(backendMessage);
     } finally {
-      setSubmitting(false);
+      setSubmitting(false); // ✅ esto garantiza que el botón se reactive
     }
   };
+  
 
   if (!animal || userLoading) return null;
   if (userError) return <p>Error cargando usuario.</p>;
@@ -133,7 +136,7 @@ const Adoptar = () => {
               )}
             </div>
 
-          {error && <p className="text-danger mt-2">{error}</p>}
+          {error && <p className="alert-message alert-error">{error}</p>}
 
           <button
             className="custom-btn mt-3"
