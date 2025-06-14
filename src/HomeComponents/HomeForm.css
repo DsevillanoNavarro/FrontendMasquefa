@@ -1,0 +1,53 @@
+/* Título con fuente 'Afacad', tamaño grande y negrita, alineado a la izquierda */
+.titulo-afacad {
+  font-family: 'Afacad', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* Texto con fuente 'Poppins', tamaño un poco menor, alineado a la izquierda */
+.texto-poppins {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+/* Botón oscuro con fondo gris muy oscuro, texto blanco, sin borde, y bordes redondeados */
+.boton-oscuro {
+  background-color: #333333;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+/* Cambio de color del botón al pasar el cursor: fondo azul y texto blanco */
+.boton-oscuro:hover {
+  background-color: #4170E8;
+  color: white;
+}
+
+/* Estilo para texto con clase txtRegistrarse, tamaño 20px */
+.txtRegistrarse {
+  font-size: 20px;
+}
+
+/* Estilos responsivos para pantallas pequeñas (menores o iguales a 767px) */
+@media (max-width: 767px) {
+  /* Centra texto de títulos y textos en dispositivos móviles */
+  .titulo-afacad,
+  .texto-poppins {
+    text-align: center;
+  }
+
+  /* Botón oscuro mantiene ancho completo */
+  .boton-oscuro {
+    width: 100%;
+  }
+  
+  /* Disminuye tamaño del texto txtRegistrarse para mejor adaptación en móviles */
+  .txtRegistrarse {
+    font-size: 16px;
+  }
+}

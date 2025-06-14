@@ -1,0 +1,58 @@
+/* Contenedor principal sin cambios */
+.AnimalDetail {
+  font-family: 'Afacad', sans-serif; /* Fuente personalizada para consistencia visual */
+  margin-top: 4rem;                  /* Margen superior amplio para separación */
+  padding-bottom: 4rem;             /* Espacio inferior para separar contenido siguiente */
+}
+
+/* Fila: ya no centramos verticalmente (comentario explicativo, sin regla CSS) */
+
+/* Título principal con tamaño aumentado */
+.detail-title {
+  font-size: 4rem;       /* Tamaño más grande que antes (antes 3rem) para mayor impacto */
+  font-weight: 700;      /* Negrita para enfatizar */
+  margin-bottom: 1.5rem; /* Espacio debajo, un poco más que antes para mejor separación */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  text-align: left;      /* Siempre alineado a la izquierda */
+}
+
+/* Párrafos descriptivos con texto grande y legible */
+.detail-desc {
+  font-size: 1.25rem;    /* Tamaño de fuente aumentado (antes 1rem) para mejor lectura */
+  line-height: 1.8;      /* Espacio entre líneas para mejorar la legibilidad */
+  color: #333;           /* Color gris oscuro para buen contraste sin ser tan fuerte como negro */
+  margin-bottom: 1rem;   /* Separación inferior para separar párrafos */
+  text-align: left;      /* Asegura que el texto no se centre y mantenga alineación izquierda */
+}
+
+/* Botón personalizado similar al anterior pero alineado al inicio */
+.custom-btn {
+  display: inline-block;              /* Se muestra en línea pero acepta ancho y alto */
+  font-family: 'Poppins', sans-serif;/* Fuente distinta para destacar botón */
+  font-size: 18px;                   /* Tamaño ligeramente mayor para visibilidad */
+  font-weight: 900;                  /* Negrita fuerte */
+  padding: 20px 40px;                /* Relleno amplio para área clickeable cómoda */
+  background-color: #4170E8;        /* Color azul principal */
+  color: #fff;                      /* Texto blanco */
+  border: none;                     /* Sin borde */
+  outline: none;                    /* Sin contorno al enfocar */
+  box-shadow: none;                 /* Sin sombra */
+  transition: background-color 0.3s ease; /* Transición suave en cambio de color */
+  border-radius: 0;                 /* Sin bordes redondeados */
+  margin-top: 2rem;                 /* Margen superior para separar del contenido anterior */
+  cursor: pointer;                  /* Cursor de mano para indicar clickeable */
+  text-align: center;               /* Texto centrado dentro del botón */
+}
+
+/* Cambio de color del botón al pasar el cursor */
+.custom-btn:hover {
+  background-color: #3055c1; /* Azul más oscuro para efecto hover */
+}
+
+/* Texto grande para estados de carga o error */
+.loading {
+  font-family: 'Afacad', sans-serif; /* Fuente consistente */
+  text-align: center;                /* Texto centrado */
+  margin: 5rem 0;                   /* Espacio arriba y abajo para separación */
+  font-size: 1.5rem;                /* Tamaño grande para llamar la atención */
+}

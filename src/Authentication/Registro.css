@@ -1,0 +1,111 @@
+/* UsuarioForm.css: basado en Login.css para mantener consistencia */
+
+/* Contenedor principal para el formulario de usuario (similar al login) */
+.login-container {
+  font-family: 'Afacad', sans-serif; /* Fuente personalizada */
+  max-width: 400px; /* Ancho máximo */
+  margin: 5rem auto; /* Centrado horizontal con margen vertical */
+  padding: 2rem; /* Espacio interno */
+  background: #fff; /* Fondo blanco */
+}
+
+/* Título del formulario */
+.login-title {
+  font-size: 3rem; /* Tamaño grande */
+  font-weight: 700; /* Negrita fuerte */
+  margin-bottom: 2rem; /* Separación inferior */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  text-align: center; /* Centrado horizontal */
+}
+
+/* Estilo para los campos de entrada */
+.login-input {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  font-family: 'Afacad', sans-serif; /* Fuente consistente */
+  font-size: 1rem; /* Tamaño legible */
+  padding: 0.75rem 1rem; /* Espacio interno cómodo */
+  margin-bottom: 1rem; /* Separación entre inputs */
+  border: 1px solid #ccc; /* Borde gris claro */
+  outline: none; /* Sin contorno al enfocar */
+}
+
+/* Cambio de borde al enfocar el input */
+.login-input:focus {
+  border-color: #4170E8; /* Borde azul para indicar foco */
+}
+
+/* Botón principal del formulario */
+.login-btn {
+  display: block; /* Bloque para ocupar toda la línea */
+  width: 100%; /* Ancho completo */
+  font-family: 'Poppins', sans-serif; /* Fuente distinta para el botón */
+  font-size: 18px; /* Texto más grande */
+  font-weight: 900; /* Negrita muy fuerte */
+  padding: 15px; /* Relleno para botón cómodo */
+  background-color: #4170E8; /* Color azul */
+  color: #fff; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 0; /* Sin bordes redondeados */
+  cursor: pointer; /* Cursor de mano */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Hover para el botón cuando no está deshabilitado */
+.login-btn:hover:not(:disabled) {
+  background-color: #000; /* Cambia a negro */
+}
+
+/* Estilo para botón deshabilitado */
+.login-btn:disabled {
+  background-color: #ccc; /* Gris claro */
+  cursor: not-allowed; /* Cursor de prohibido */
+}
+
+/* Mensajes de alerta para errores */
+.alert-error {
+  font-family: 'Afacad', sans-serif; /* Fuente consistente */
+  font-size: 1.25rem; /* Texto destacado */
+  margin-top: 1rem; /* Espacio superior */
+  text-align: center; /* Centrado */
+  color: red; /* Texto rojo para errores */
+}
+
+/* Mensajes de alerta para éxito */
+.alert-success {
+  color: green; /* Texto verde para éxito */
+}
+
+/* Clase para animación opcional de entrada */
+.slide-down-fade {
+  animation: slideDownFade 0.5s ease-out; /* Animación definida abajo */
+}
+
+/* Definición de la animación slideDownFade */
+@keyframes slideDownFade {
+  from { 
+    opacity: 0; /* Comienza transparente */
+    transform: translateY(-20px); /* Se desplaza ligeramente hacia arriba */
+  }
+  to { 
+    opacity: 1; /* Termina visible */
+    transform: translateY(0); /* Posición original */
+  }
+}
+
+/* Contenedor para enlaces debajo del formulario */
+.login-links {
+  margin-top: 1rem; /* Separación superior */
+  text-align: center; /* Centrado */
+}
+
+/* Estilo para los enlaces */
+.login-link {
+  color: #007bff; /* Azul típico de enlaces */
+  text-decoration: none; /* Sin subrayado */
+  font-size: 0.9rem; /* Tamaño pequeño */
+}
+
+/* Subrayado al pasar el mouse */
+.login-link:hover {
+  text-decoration: underline;
+}

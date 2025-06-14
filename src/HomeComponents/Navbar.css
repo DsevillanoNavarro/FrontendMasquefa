@@ -1,0 +1,93 @@
+/* Transición del menú desplegable en móvil */
+/* Estado inicial oculto: altura 0, transparencia total, desplazado hacia arriba */
+.animated-slide {
+    overflow: hidden; /* Oculta contenido que desborda */
+    max-height: 0; /* Altura cero para esconder */
+    opacity: 0; /* Transparente */
+    transform: translateY(-10px); /* Desplazado ligeramente hacia arriba */
+    transition: max-height 1s ease, opacity 0.4s ease, transform 1s ease; /* Transiciones suaves para altura, opacidad y posición */
+    display: block !important; /* Fuerza que sea visible en bloque para evitar que Bootstrap lo esconda */
+}
+
+/* Estado expandido: se muestra el menú con altura suficiente, opacidad completa y sin desplazamiento */
+.animated-slide.show {
+    max-height: 500px; /* Altura suficiente para mostrar el contenido; ajusta según contenido */
+    opacity: 1; /* Opaco */
+    transform: translateY(0); /* Sin desplazamiento vertical */
+}
+
+/* En pantallas grandes (escritorio) se elimina la animación para mostrar el menú siempre visible */
+@media (min-width: 1400px) {
+    .animated-slide {
+      max-height: none !important; /* Altura automática para todo el contenido */
+      opacity: 1 !important; /* Opaco siempre */
+      transform: none !important; /* Sin transformación */
+      transition: none !important; /* Sin transición */
+    }
+}
+
+/* Estilos para título móvil en pantallas menores a 1400px */
+@media (max-width: 1399.98px) {
+    .mobile-title {
+      font-size: 1rem; /* Tamaño de fuente más pequeño para móviles */
+      text-align: center; /* Texto centrado */
+      flex: 1; /* Toma todo el espacio disponible */
+      margin-left: 15px; /* Margen izquierdo para separación */
+    }
+}
+
+/* Estilos para el botón personalizado del menú hamburguesa */
+
+/* Botón sin borde ni fondo para que sea transparente */
+.custom-toggler {
+    border: none !important;
+    background: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    width: 30px;
+    height: 24px;
+    position: relative; /* Posicionamiento para las líneas pseudo-elementos */
+}
+
+/* Oculta la línea del medio del icono hamburguesa por defecto */
+.custom-toggler .navbar-toggler-icon {
+    display: none;
+}
+
+/* Define las dos líneas del menú hamburguesa usando pseudo-elementos before y after */
+.custom-toggler::before,
+.custom-toggler::after {
+    content: ""; /* Contenido vacío */
+    position: absolute; /* Posición absoluta dentro del botón */
+    left: 0; /* Alineadas a la izquierda */
+    width: 100%; /* Ancho completo del botón */
+    height: 3px; /* Grosor de las líneas */
+    background-color: black; /* Color negro */
+    transition: all 0.3s ease-in-out; /* Transición suave para todas las propiedades */
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Posición inicial: línea superior en la parte superior */
+.custom-toggler::before {
+    top: 0;
+}
+
+/* Posición inicial: línea inferior en la parte inferior */
+.custom-toggler::after {
+    bottom: 0;
+}
+
+/* Animación al abrir el menú: líneas giran para formar una X */
+/* La línea superior rota 45 grados y se mueve hacia abajo */
+.custom-toggler.open::before {
+    transform: rotate(45deg);
+    top: 10px;
+}
+
+/* La línea inferior rota -45 grados y se mueve hacia arriba */
+.custom-toggler.open::after {
+    transform: rotate(-45deg);
+    bottom: 10px;
+}

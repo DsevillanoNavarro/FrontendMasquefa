@@ -1,0 +1,5 @@
+.contacto {
+    margin-top: 30%;      /* Espacio superior grande para separar el contenedor de contacto del contenido previo */
+    max-width: 960px;     /* Ancho máximo para que el contenedor no crezca demasiado en pantallas grandes */
+    margin: auto;         /* Centra horizontalmente el contenedor dentro de su elemento padre */
+}

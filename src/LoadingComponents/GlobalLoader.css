@@ -1,0 +1,12 @@
+.loading-screen {
+    position: fixed; /* Fija la pantalla de carga en una posición fija sobre toda la ventana */
+    top: 0; /* Posiciona en la parte superior de la ventana */
+    left: 0; /* Posiciona en el borde izquierdo de la ventana */
+    width: 100vw; /* Ancho igual al 100% del viewport (ventana visible) */
+    height: 100vh; /* Alto igual al 100% del viewport */
+    background-color: white; /* Fondo blanco para la pantalla de carga */
+    z-index: 9999; /* Se asegura que esté encima de todos los elementos en la página */
+    display: flex; /* Utiliza flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente los elementos hijos */
+    align-items: center; /* Centra verticalmente los elementos hijos */
+}

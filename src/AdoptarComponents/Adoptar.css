@@ -1,0 +1,181 @@
+/* Contenedor principal de la sección de adopción */
+.adoptar-wrapper {
+  padding-top: 5rem; /* Espacio arriba */
+  padding-inline: 1.5rem; /* Espacio a los lados */
+  max-width: 1200px; /* Ancho máximo para que no sea muy ancho */
+  margin: 0 auto; /* Centrar horizontalmente */
+  margin-bottom: 5%; /* Espacio abajo */
+}
+
+/* Grid principal con flexbox para organizar contenido en filas */
+.adoptar-grid {
+  display: flex; /* Usar flexbox para layout */
+  flex-wrap: wrap; /* Permitir que los items pasen a otra línea si no caben */
+  gap: 4rem; /* Separación entre columnas y filas */
+  align-items: flex-start; /* Alinear elementos al inicio verticalmente */
+}
+
+/* Columna izquierda y derecha, con flex-grow y base mínimo de 450px */
+.adoptar-left,
+.adoptar-right {
+  flex: 1 1 450px; /* Flex grow 1, shrink 1, base 450px */
+}
+
+/* Imagen principal dentro del bloque de adopción */
+.adoptar-img {
+  width: 100%; /* Ancho completo del contenedor */
+  max-height: 70%; /* Altura máxima relativa al contenedor */
+  object-fit: cover; /* La imagen cubre el área manteniendo proporción */
+  border-radius: 6px; /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* Sombra sutil para profundidad */
+}
+
+/* Información o texto que acompaña la imagen */
+.adoptar-info {
+  margin-top: 1rem; /* Separación arriba */
+  padding: 1.2rem; /* Relleno interno */
+  background-color: #f4f4f4; /* Fondo gris claro */
+  border-radius: 6px; /* Bordes redondeados */
+  line-height: 1.6; /* Altura de línea para legibilidad */
+}
+
+/* Columna derecha con espacio a la izquierda y borde separador */
+.adoptar-right {
+  padding-left: 2rem; /* Espacio interno a la izquierda */
+  border-left: 1px solid #ddd; /* Línea divisoria sutil */
+}
+
+/* Descripción general dentro del bloque adoptar */
+.adoptar-desc {
+  margin: 1rem 0; /* Margen arriba y abajo */
+  color: #333; /* Color texto oscuro */
+  font-size: 0.95rem; /* Tamaño de letra ligeramente pequeño */
+}
+
+/* Estilo para enlaces de descarga */
+.download-link {
+  display: inline-block; /* Comportamiento de bloque en línea */
+  margin-bottom: 1rem; /* Espacio abajo */
+  color: #0072ce; /* Color azul */
+  font-weight: 500; /* Peso medio */
+  text-decoration: none; /* Sin subrayado */
+  border-bottom: 1px solid transparent; /* Borde para animación */
+  transition: 0.2s ease; /* Transición suave */
+}
+
+/* Hover para enlaces de descarga: aparece borde */
+.download-link:hover {
+  border-color: #0072ce; /* Borde azul al pasar el cursor */
+}
+
+/* Botón personalizado */
+.custom-btn {
+  background-color: #0072ce; /* Fondo azul */
+  color: white; /* Texto blanco */
+  padding: 0.6rem 1.4rem; /* Relleno vertical y horizontal */
+  border: none; /* Sin borde */
+  border-radius: 6px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor puntero */
+  font-weight: 500; /* Peso medio */
+  transition: background-color 0.3s ease; /* Transición en fondo */
+}
+
+/* Hover para botón personalizado: azul más oscuro */
+.custom-btn:hover {
+  background-color: #005ea6;
+}
+
+/* Etiqueta de formulario */
+.form-label {
+  font-weight: 500; /* Peso medio */
+  display: block; /* Mostrar en bloque */
+  margin-bottom: 0.5rem; /* Separación debajo */
+}
+
+/* Estilo para input tipo archivo */
+input[type="file"] {
+  border: 1px solid #ccc; /* Borde gris claro */
+  padding: 0.4rem; /* Relleno interno */
+  border-radius: 6px; /* Bordes redondeados */
+  background-color: white; /* Fondo blanco */
+}
+
+/* Input oculto (usado para personalizar el input file) */
+.hidden-input {
+  display: none; /* Oculto */
+}
+
+/* Etiqueta personalizada para el input file */
+.custom-file-label {
+  display: inline-block; /* Comportamiento de bloque en línea */
+  width: 100%; /* Ancho completo */
+  padding: 0.6rem 1rem; /* Relleno */
+  background-color: #fff; /* Fondo blanco */
+  border: 1px solid #ced4da; /* Borde gris */
+  border-radius: 6px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor puntero para indicar clicable */
+  transition: background-color 0.2s ease; /* Transición para hover */
+  color: #495057; /* Color gris oscuro */
+}
+
+/* Hover para etiqueta personalizada input file */
+.custom-file-label:hover {
+  background-color: #f1f1f1; /* Fondo gris muy claro */
+}
+
+/* Nombre del archivo subido */
+.archivo-nombre {
+  margin-top: 0.5rem; /* Separación arriba */
+  font-size: 0.9rem; /* Tamaño texto pequeño */
+  color: #444; /* Color gris oscuro */
+}
+
+/* Variante del nombre de archivo con estilo más tenue */
+.archivo-nombre.muted {
+  color: #888; /* Color gris claro */
+  font-style: italic; /* Texto en cursiva */
+}
+
+/* Contenedor de información de adopción */
+.info-adopcion {
+  background-color: #f9f9f9; /* Fondo gris muy claro */
+  border: 1px solid #ddd; /* Borde gris claro */
+  padding: 1.2rem 1.5rem; /* Relleno interno */
+  border-radius: 6px; /* Bordes redondeados */
+  color: #333; /* Texto oscuro */
+  font-size: 0.95rem; /* Tamaño de fuente legible */
+  line-height: 1.6; /* Altura de línea para legibilidad */
+}
+
+/* Título principal dentro de info-adopcion */
+.info-adopcion h4 {
+  font-size: 1.2rem; /* Tamaño mayor */
+  margin-bottom: 0.8rem; /* Margen debajo */
+  color: #1e1e1e; /* Color negro casi */
+}
+
+/* Subtítulo dentro de info-adopcion */
+.info-adopcion h5 {
+  font-size: 1.05rem; /* Tamaño un poco menor */
+  margin-top: 1rem; /* Margen arriba */
+  margin-bottom: 0.5rem; /* Margen debajo */
+  color: #1e1e1e; /* Color negro casi */
+}
+
+/* Lista de requisitos para adopción */
+.adopcion-requisitos {
+  padding-left: 1.2rem; /* Sangría izquierda */
+  margin: 0; /* Sin margen */
+}
+
+/* Elementos de la lista con separación */
+.adopcion-requisitos li {
+  margin-bottom: 0.4rem; /* Margen entre ítems */
+  list-style-type: disc; /* Viñetas clásicas */
+}
+
+/* Pie de texto para notas o comentarios */
+.adopcion-footer {
+  font-style: italic; /* Texto en cursiva */
+  color: #555; /* Color gris medio */
+}

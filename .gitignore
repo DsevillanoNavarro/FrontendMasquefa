@@ -1,0 +1,42 @@
+# dependencias
+/node_modules
+
+# build
+/build
+/dist
+
+# archivos de entorno
+.env
+.env.*
+!.env.example
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# editor
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# sistema operativo
+.DS_Store
+Thumbs.db
+
+# pruebas
+/coverage
+
+# archivos temporales
+*.log
+*.tgz
+
+# local development SSL certs (si los usas)
+*.pem
+
+# configuraciones específicas de Netlify o Vercel (si no quieres subirlas)
+vercel.json

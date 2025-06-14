@@ -1,0 +1,102 @@
+/* Contenedor principal de la galería de gatos */
+.cat-gallery {
+  font-family: 'Afacad', sans-serif;  /* Fuente personalizada para todo el contenido */
+  background-color: white;             /* Fondo blanco limpio */
+}
+
+/* Contenedor central para las imágenes en la página principal */
+.HomeCatsContainer {
+  margin-top: 4%;                      /* Margen superior para separación */
+  max-width: 80%;                     /* Limita el ancho máximo a 80% del contenedor padre */
+  margin-left: auto;                  /* Centra horizontalmente */
+  margin-right: auto;                 /* Centra horizontalmente */
+  padding-left: 15px;                 /* Espacio interno izquierdo */
+  padding-right: 15px;                /* Espacio interno derecho */
+}
+
+/* Contenedor para cada imagen individual de gato */
+.cat-image-container {
+  position: relative;                 /* Necesario para posicionar elementos hijos absolute */
+  overflow: hidden;                  /* Oculta cualquier contenido que sobresalga del contenedor */
+}
+
+/* Estilos para la imagen del gato */
+.cat-image {
+  border-radius: 4px;                 /* Bordes ligeramente redondeados */
+  max-height: 50%;                   /* Altura máxima al 50% (relativo al contenedor padre) */
+  object-fit: cover;                 /* La imagen cubre el área, recortando si es necesario */
+  width: 100%;                      /* Ancho total del contenedor */
+  transition: transform 0.3s ease; /* Transición suave para transformaciones */
+}
+
+/* Efecto hover para hacer zoom suave en la imagen */
+.cat-image-container:hover .cat-image {
+  transform: scale(1.05);           /* Aumenta el tamaño ligeramente */
+}
+
+/* Capa superpuesta (overlay) que aparece al hacer hover */
+.overlay {
+  border-radius: 4px;               /* Bordes redondeados para coincidir con la imagen */
+  position: absolute;               /* Posiciona sobre la imagen */
+  top: 0;                          /* Ajuste en la parte superior */
+  left: 0;                         /* Ajuste a la izquierda */
+  width: 100%;                     /* Ocupa todo el ancho del contenedor */
+  height: 100%;                    /* Ocupa toda la altura del contenedor */
+  background: rgba(255, 255, 255, 0.26); /* Fondo blanco translúcido */
+  display: flex;                   /* Usa flexbox para centrar contenido */
+  align-items: center;             /* Centra verticalmente */
+  justify-content: center;         /* Centra horizontalmente */
+  opacity: 0;                     /* Invisible por defecto */
+  transition: opacity 0.3s ease;  /* Transición suave para la opacidad */
+}
+
+/* Al pasar el ratón sobre la imagen, el overlay se hace visible */
+.cat-image-container:hover .overlay {
+  opacity: 1;                      /* Hace visible la superposición */
+}
+
+/* Botón para adoptar */
+.adopt-btn {
+  background-color: white;          /* Fondo blanco */
+  border: none;                    /* Sin borde */
+  padding: 10px 20px;              /* Espacio interno cómodo */
+  font-weight: bold;               /* Texto en negrita */
+  font-size: 1rem;                 /* Tamaño de fuente estándar */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil para dar profundidad */
+  transition: background-color 0.3s ease;   /* Transición suave para el fondo */
+  cursor: pointer;                 /* Cambia el cursor a puntero al pasar por encima */
+}
+
+/* Efecto hover para el botón adoptar: fondo gris claro */
+.adopt-btn:hover {
+  background-color: #f1f1f1;
+}
+
+/* Nombre del gato */
+.cat-name {
+  font-size: 24px;               /* Tamaño grande para destacar */
+  font-weight: 500;              /* Peso medio */
+}
+
+/* Media query para pantallas menores a 1400px */
+@media (max-width: 1400px) {
+  .gallery-title {
+    font-size: 40px;            /* Tamaño de título más pequeño en pantallas medianas */
+    text-align: center;         /* Centrado del texto */
+  }
+}
+
+/* Clase para animar una entrada con efecto fade-in y subida */
+.fade-in {
+  opacity: 0;                   /* Invisible al inicio */
+  transform: translateY(20px); /* Desplazado hacia abajo */
+  animation: fadeInUp 0.6s ease-out forwards; /* Ejecuta animación definida */
+}
+
+/* Definición de la animación fadeInUp */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;                /* Termina completamente visible */
+    transform: translateY(0); /* Termina en posición original */
+  }
+}

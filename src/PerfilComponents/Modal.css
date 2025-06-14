@@ -1,0 +1,162 @@
+/* Modal.css - estilo minimalista y limpio */
+
+/* Contenedor general del modal, cubre toda la pantalla con fondo semitransparente */
+.modal-wrapper {
+  position: fixed;              /* Fijo para que quede siempre visible */
+  top: 0;
+  left: 0;
+  width: 100vw;                 /* Ocupa todo el ancho de la ventana */
+  height: 100vh;                /* Ocupa toda la altura de la ventana */
+  background-color: rgba(0,0,0,0.15); /* Fondo negro con opacidad para oscurecer contenido */
+  display: flex;                /* Usamos flexbox para centrar el contenido */
+  align-items: center;          /* Centrado vertical */
+  justify-content: center;      /* Centrado horizontal */
+  z-index: 1000;                /* Para estar encima de otros elementos */
+}
+
+/* Contenedor del contenido del modal */
+.modal-container {
+  background-color: #fff;       /* Fondo blanco */
+  width: 90%;                  /* Ocupa el 90% del ancho disponible */
+  max-width: 480px;             /* Máximo ancho para no crecer demasiado */
+  border-radius: 6px;           /* Bordes redondeados */
+  padding: 1.5rem 2rem;         /* Espaciado interno */
+  box-sizing: border-box;       /* Padding incluido en el tamaño */
+  font-family: 'Afacad', sans-serif, sans-serif; /* Fuente personalizada */
+  color: #222;                  /* Color del texto */
+  outline: none;                /* Sin contorno por defecto */
+}
+
+/* Encabezado del modal con título y botón de cerrar */
+.modal-header-container {
+  display: flex;                /* Flexbox para espacio entre título y botón */
+  justify-content: space-between;
+  align-items: center;          /* Alineación vertical centrada */
+  margin-bottom: 1.2rem;        /* Espacio debajo del encabezado */
+}
+
+/* Estilo para el título del modal */
+.modal-header-container h2 {
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 0;
+  color: #111;
+}
+
+/* Botón para cerrar el modal */
+.modal-close-button {
+  background: transparent;      /* Fondo transparente */
+  border: none;                /* Sin borde */
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;                 /* Color gris para botón */
+  line-height: 1;
+  transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+/* Cambio de color al pasar el mouse sobre el botón */
+.modal-close-button:hover {
+  color: #000;                 /* Negro al pasar mouse */
+}
+
+/* Etiquetas dentro del cuerpo del modal */
+.modal-body label {
+  display: block;              /* Ocupa toda la línea */
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #444;
+  font-size: 1rem;
+}
+
+/* Inputs de texto, archivos y textarea dentro del modal */
+.modal-body input[type="text"],
+.modal-body input[type="file"],
+.modal-body textarea {
+  width: 100%;                /* Ocupan todo el ancho */
+  padding: 0.4rem 0.6rem;     /* Espaciado interno */
+  font-size: 1rem;
+  border: 1px solid #ddd;     /* Borde gris claro */
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #222;
+  font-family: inherit;       /* Misma fuente que contenedor */
+  resize: vertical;           /* Permite cambiar tamaño vertical en textarea */
+  margin-top: 0.25rem;
+  transition: border-color 0.3s ease;
+}
+
+/* Estilos al enfocar inputs y textarea */
+.modal-body input[type="text"]:focus,
+.modal-body textarea:focus,
+.modal-body input[type="file"]:focus {
+  border-color: #000;         /* Borde negro al enfocar */
+  outline: none;              /* Sin contorno por defecto */
+}
+
+/* Estilos para iframe dentro del cuerpo del modal */
+.modal-body iframe {
+  border-radius: 4px;
+  border: 1px solid #eee;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 300px;
+}
+
+/* Párrafos dentro del cuerpo */
+.modal-body p {
+  color: #555;
+  font-size: 1rem;
+  margin: 1rem 0;
+  text-align: center;         /* Texto centrado */
+}
+
+/* Pie de modal con botones */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;  /* Botones alineados a la derecha */
+  gap: 1rem;                  /* Espacio entre botones */
+  margin-top: 1.5rem;
+}
+
+/* Estilo general para botones */
+.modal-footer button {
+  background: transparent;
+  border: 1px solid #666;
+  color: #666;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+/* Estilo hover para botones */
+.modal-footer button:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* Estado deshabilitado para botones */
+.modal-footer button:disabled {
+  background-color: #e0e0e0;
+  color: #aaa;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsivo para pantallas pequeñas (menor a 480px) */
+@media (max-width: 480px) {
+  .modal-container {
+    padding: 1rem 1.2rem;      /* Menos padding para pantallas pequeñas */
+  }
+  .modal-footer {
+    flex-direction: column;    /* Botones apilados verticalmente */
+    gap: 0.8rem;
+  }
+  .modal-footer button {
+    width: 100%;               /* Botones ocupan todo el ancho */
+  }
+}

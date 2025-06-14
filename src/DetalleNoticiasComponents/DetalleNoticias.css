@@ -1,0 +1,162 @@
+/* Importa la fuente 'Afacad' desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Afacad&display=swap');
+
+/* Contenedor principal de detalle de noticia */
+.NoticiaDetail {
+  font-family: 'Afacad', sans-serif; /* Fuente personalizada para todo el contenido */
+  background-color: #fff;             /* Fondo blanco para claridad */
+  padding: 2rem;                     /* Espacio interno alrededor del contenido */
+}
+
+/* Título de la noticia */
+.detail-title {
+  font-size: 3.5rem;          /* Tamaño grande para resaltar título */
+  margin-bottom: 1rem;         /* Espacio debajo para separar del siguiente elemento */
+  text-transform: uppercase;   /* Texto en mayúsculas */
+  text-align: left;            /* Alineación a la izquierda */
+  font-weight: bold;           /* Negrita */
+  color: #111;                 /* Color casi negro para buen contraste */
+}
+
+/* Fecha de la noticia */
+.detail-date {
+  font-size: 1rem;           /* Tamaño estándar para texto secundario */
+  color: #666;               /* Gris medio para menor protagonismo */
+  margin-bottom: 1.5rem;     /* Separación bajo la fecha */
+}
+
+/* Párrafos del contenido de la noticia */
+.detail-content p {
+  font-size: 1.1rem;         /* Tamaño ligeramente mayor para mejor lectura */
+  line-height: 1.8;          /* Altura de línea para mejorar legibilidad */
+  margin-bottom: 1rem;       /* Espacio entre párrafos */
+  color: #222;               /* Gris oscuro para lectura cómoda */
+}
+
+/* ======== Comentarios ======== */
+
+/* Sección que contiene todos los comentarios */
+.comentarios-section {
+  margin-top: 3rem;              /* Separación superior del contenido principal */
+  border-top: 1px solid #ddd;   /* Línea superior para separar visualmente */
+  padding-top: 2rem;            /* Espacio interno arriba para respirar */
+}
+
+/* Tarjeta individual de comentario */
+.comentario-card {
+  background-color: #f9f9f9;               /* Fondo gris muy claro para destacar */
+  border-radius: 10px;                     /* Bordes redondeados para suavizar */
+  padding: 1rem 1.5rem;                    /* Espacio interno cómodo */
+  margin-bottom: 1.2rem;                   /* Separación debajo de cada comentario */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Sombra sutil para profundidad */
+}
+
+/* Texto dentro del comentario */
+.comentario-card p {
+  margin: 0.3rem 0;      /* Márgenes verticales pequeños para separar líneas */
+  font-size: 0.95rem;    /* Tamaño un poco más pequeño que el contenido principal */
+  color: #333;           /* Color gris oscuro para lectura */
+}
+
+/* Nombre del autor del comentario */
+.comentario-autor {
+  font-weight: 600;      /* Semi-negrita para resaltar */
+  color: #111;           /* Color oscuro para visibilidad */
+}
+
+/* Fecha del comentario */
+.comentario-fecha {
+  font-size: 0.85rem;    /* Tamaño pequeño para información secundaria */
+  color: #888;           /* Gris claro para menor relevancia */
+}
+
+/* Área de texto para escribir comentarios */
+textarea.form-control {
+  font-family: 'Afacad', sans-serif;   /* Misma fuente consistente */
+  font-size: 1rem;                     /* Tamaño legible */
+  padding: 0.8rem;                     /* Espacio interno cómodo */
+  border-radius: 8px;                  /* Bordes redondeados */
+  border: 1px solid #ccc;              /* Borde gris claro */
+  resize: vertical;                    /* Permite solo cambiar altura */
+  transition: border-color 0.3s;      /* Transición suave al enfocar */
+}
+
+/* Cambio de borde cuando el textarea está enfocado */
+textarea.form-control:focus {
+  border-color: #4170E8; /* Azul para indicar foco */
+  outline: none;         /* Sin contorno adicional */
+}
+
+/* Botón principal (enviar comentario, etc.) */
+.btn.btn-primary {
+  background-color: #4170E8;   /* Azul principal */
+  border: none;                /* Sin borde */
+  padding: 10px 20px;          /* Tamaño cómodo */
+  font-weight: 600;            /* Semi-negrita */
+  border-radius: 6px;          /* Bordes redondeados */
+  transition: background-color 0.3s; /* Transición suave en hover */
+}
+
+/* Efecto hover para botón principal */
+.btn.btn-primary:hover {
+  background-color: #305bb2; /* Azul más oscuro */
+}
+
+/* Botón secundario con estilo outline */
+.btn-outline-secondary {
+  border: 1px solid #ccc;     /* Borde gris */
+  color: #333;                /* Texto gris oscuro */
+  background: transparent;    /* Fondo transparente */
+  font-weight: 500;           /* Peso medio */
+  padding: 8px 16px;          /* Tamaño cómodo */
+  border-radius: 6px;         /* Bordes redondeados */
+  transition: all 0.3s;       /* Transiciones suaves en todos los cambios */
+}
+
+/* Hover para botón outline secundario */
+.btn-outline-secondary:hover {
+  background-color: #eee; /* Fondo gris claro */
+  color: #000;            /* Texto negro */
+}
+
+/* Alerta informativa (ej. mensajes de éxito o info) */
+.alert.alert-info {
+  font-family: 'Afacad', sans-serif; /* Fuente consistente */
+  background-color: #e7f3ff;          /* Fondo azul claro */
+  border: 1px solid #b3d8ff;          /* Borde azul */
+  color: #0c4a6e;                    /* Texto azul oscuro */
+  padding: 1rem;                     /* Espacio interno */
+  border-radius: 6px;                /* Bordes redondeados */
+}
+
+/* Botón outline primario */
+.btn-outline-primary {
+  color: #4170E8;                   /* Texto azul principal */
+  border: 1px solid #4170E8;        /* Borde azul */
+  padding: 8px 16px;                /* Tamaño cómodo */
+  border-radius: 6px;               /* Bordes redondeados */
+  font-weight: 600;                 /* Semi-negrita */
+  background-color: transparent;   /* Fondo transparente */
+}
+
+/* Hover para botón outline primario */
+.btn-outline-primary:hover {
+  background-color: #4170E8; /* Fondo azul */
+  color: white;              /* Texto blanco */
+}
+
+/* Contenedor para el contenido del comentario, controla ancho y corte de palabras */
+.comentario-contenido-box {
+  max-width: 100%;       /* Máximo ancho para que no desborde */
+  width: 100%;           /* Ocupa todo el ancho disponible */
+  padding: 0.8rem;       /* Espacio interno cómodo */
+  border-radius: 8px;    /* Bordes redondeados */
+  margin-top: 6px;       /* Separación arriba */
+  margin-bottom: 12px;   /* Separación abajo */
+
+  /* 👇 ESTA PARTE ES CRUCIAL 👇 */
+  overflow-wrap: break-word; /* Fuerza a romper palabras largas para evitar desbordes */
+  word-wrap: break-word;     /* Compatibilidad adicional para romper palabras */
+  word-break: break-word;    /* Rompe palabras largas en varias líneas */
+  white-space: pre-wrap;     /* Mantiene saltos de línea y permite múltiples líneas */
+}

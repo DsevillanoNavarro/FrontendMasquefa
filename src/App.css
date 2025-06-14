@@ -1,0 +1,54 @@
+/* Contenedor principal de la aplicación, con texto centrado */
+.App {
+  text-align: center;
+}
+
+/* Estilo para el logo de la app: altura relativa y sin interacción de puntero */
+.App-logo {
+  height: 40vmin;           /* Tamaño del logo basado en la altura del viewport */
+  pointer-events: none;     /* Evita que el logo reciba eventos de mouse */
+}
+
+/* Solo si el usuario no prefiere reducir animaciones, aplica la animación de giro al logo */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear; /* Animación de giro continua, duración 20 segundos */
+  }
+}
+
+/* Estilo del encabezado de la app: fondo oscuro, ocupa toda la altura del viewport,
+   usa flexbox para centrar contenido vertical y horizontalmente, con texto blanco y tamaño de fuente adaptable */
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;                 /* Ocupa todo el alto de la ventana */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);    /* Tamaño de fuente adaptable a la ventana */
+  color: white;
+}
+
+/* Enlaces dentro de la app con color distintivo azul claro */
+.App-link {
+  color: #61dafb;
+}
+
+/* Definición de la animación llamada "App-logo-spin" que rota el elemento 360 grados */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);    /* Empieza sin rotación */
+  }
+  to {
+    transform: rotate(360deg);  /* Termina rotado una vuelta completa */
+  }
+}
+
+/* Clase para desactivar todas las animaciones y transiciones en la página,
+   útil para usuarios con preferencia de reducción de movimiento o para evitar distracciones */
+body.no-animations *, 
+body.no-animations *::before, 
+body.no-animations *::after {
+  animation: none !important;     /* Cancela todas las animaciones */
+  transition: none !important;    /* Cancela todas las transiciones */
+}

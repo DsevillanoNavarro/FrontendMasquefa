@@ -1,0 +1,93 @@
+/* Sección principal con imagen de fondo, que cubre todo el viewport y se centra */
+.hero-section {
+  background-image: url('../Images/GatoHome.avif'); /* Imagen de fondo */
+  background-size: cover; /* La imagen cubre todo el contenedor */
+  background-position: center; /* Centra la imagen */
+  min-height: 100vh; /* Altura mínima igual al alto del viewport */
+  width: 100%; /* Ancho completo */
+  color: white; /* Texto en blanco para contraste */
+  display: flex; /* Usamos flexbox */
+  flex-direction: column; /* Elementos en columna */
+  justify-content: center; /* Centrado vertical por defecto */
+  padding: 60px 0; /* Espaciado arriba y abajo */
+}
+
+/* Estilo para imagen con clase imgHome */
+.imgHome {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 10% !important; /* Margen izquierdo forzado al 10% */
+  margin-right: 0;
+}
+
+/* Título principal dentro de la sección hero */
+.hero-title {
+  font-family: 'Afacad', sans-serif; /* Fuente personalizada */
+  font-size: 8vw; /* Tamaño responsivo basado en ancho de la ventana */
+  font-weight: bold;
+  line-height: 1.1; /* Altura de línea ajustada para mejor legibilidad */
+}
+
+/* Botón personalizado con fuentes y estilos específicos */
+.custom-btn {
+  font-family: 'Poppins', sans-serif; /* Fuente para botones */
+  font-size: 30px !important; /* Tamaño de fuente forzado */
+  font-weight: 900;
+  padding: 20px 40px !important; /* Padding forzado */
+  background-color: #4170E8 !important; /* Color azul forzado */
+  color: white !important;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  transition: background-color 0.5s ease; /* Transición suave para hover */
+  border-radius: 0 !important; /* Sin bordes redondeados */
+}
+
+/* Cambio de color de fondo del botón al pasar el cursor */
+.custom-btn:hover {
+  background-color: #000000 !important; /* Fondo negro al hover */
+}
+
+/* Estilos para pantallas con ancho máximo de 1400px (responsive) */
+@media (max-width: 1400px) {
+  /* En pantallas medianas y pequeñas, se justifica contenido al final verticalmente */
+  .hero-section {
+    justify-content: flex-end;
+    padding: 0 20px 40px 20px; /* Padding ajustado lateral y abajo */
+  }
+
+  /* Quita margen izquierdo en la imagen y mantiene sin padding */
+  .imgHome {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0 !important;
+    margin-right: 0;
+  }
+
+  /* Ajusta padding del botón para dispositivos más pequeños */
+  .custom-btn {
+    padding: 10px 20px !important;
+  }
+
+  /* Wrapper del texto dentro del hero con flex para centrar contenido */
+  .hero-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center !important; /* Texto centrado forzado */
+  }
+
+  /* Título del hero con tamaño en altura de viewport, margen y centrado */
+  .hero-title {
+    font-size: 12vh;
+    margin-bottom: 20px;
+    text-align: center !important;
+  }
+
+  /* Ajustes adicionales para el botón en dispositivos pequeños */
+  .custom-btn {
+    font-size: 6vw; /* Tamaño responsivo basado en ancho de ventana */
+    padding: 20px 40px;
+    margin-bottom: 10px;
+  }
+}

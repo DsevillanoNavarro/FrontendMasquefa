@@ -1,0 +1,122 @@
+.cat-gallery {
+    font-family: 'Afacad', sans-serif;
+    background-color: white;
+  }
+  
+  .HomeCatsContainer {
+    margin-top: 4%;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+
+  
+  .cat-image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cat-image {
+    border-radius: 4px;
+    max-height: 50%;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  .cat-image-container:hover .cat-image {
+    transform: scale(1.05);
+  }
+  
+  .overlay {
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.26);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .cat-image-container:hover .overlay {
+    opacity: 1;
+  }
+  
+  .adopt-btn {
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .adopt-btn:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .cat-name {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 1400px) {
+    .gallery-title {
+      font-size: 40px;
+      text-align: center;
+    }
+  }
+  .custom-select-wrapper {
+    position: relative;
+  }
+  
+  .custom-select {
+    appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px 35px 10px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-family: 'Afacad', sans-serif;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+  
+  .custom-pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+  }
+  
+  .custom-pagination .page-number {
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background-color: #eee;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    font-family: 'Afacad', sans-serif;
+  }
+  
+  .custom-pagination .page-number:hover {
+    background-color: #ccc;
+  }
+  
+  .custom-pagination .page-number.active {
+    background-color: black;
+    color: white;
+  }
+  
