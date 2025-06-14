@@ -19,14 +19,13 @@ const DetalleNoticias = () => {
   // Estados locales para la noticia, comentarios, paginación, formularios y mensajes
   const [noticia, setNoticia] = useState(null);
   const [comentarios, setComentarios] = useState([]);
-  const [comentariosVisibles, setComentariosVisibles] = useState(5); // para controlar paginación (aquí no usada visible)
   const [nuevoComentario, setNuevoComentario] = useState("");
   const [comentariosLoading, setComentariosLoading] = useState(false);
   const [comentarioError, setComentarioError] = useState(null);
   const [comentarioSuccess, setComentarioSuccess] = useState(null);
   const [responderA, setResponderA] = useState(null); // ID del comentario al que se está respondiendo
   const [respuestaTexto, setRespuestaTexto] = useState("");
-
+  const [comentarioBtnDisabled, setComentarioBtnDisabled] = useState(false);
   // Efecto para cargar la noticia al cambiar el id
   useEffect(() => {
     setLoading(true); // activamos loading global
@@ -61,7 +60,6 @@ const DetalleNoticias = () => {
 
   // Función para publicar un comentario nuevo
   const handlePublicarComentario = async () => {
-    // Validaciones básicas: no vacío y mínimo 5 caracteres
     if (!nuevoComentario.trim() || nuevoComentario.length < 5) {
       setComentarioError("El comentario debe tener al menos 5 caracteres.");
       return;
@@ -69,6 +67,7 @@ const DetalleNoticias = () => {
 
     setComentarioError(null);
     setComentarioSuccess(null);
+    setComentarioBtnDisabled(true); // Deshabilita el botón inmediatamente
 
     try {
       const comentarioData = {
@@ -76,14 +75,11 @@ const DetalleNoticias = () => {
         contenido: nuevoComentario.trim(),
       };
 
-      // Llamada al API para crear comentario, usando token de usuario autenticado
       const newComment = await comentarioService.crearComentario(comentarioData, token);
-      // Añadimos el comentario al inicio del listado local
       setComentarios((prev) => [newComment, ...prev]);
       setNuevoComentario("");
       setComentarioSuccess("Comentario publicado correctamente.");
     } catch (error) {
-      // Manejo de errores más detallado, incluyendo límite de tiempo (429)
       console.error("Error al publicar comentario:", error.response?.data || error.message);
       const mensaje =
         error.response?.status === 429
@@ -93,8 +89,14 @@ const DetalleNoticias = () => {
             JSON.stringify(error.response?.data) ||
             "Error al publicar comentario";
       setComentarioError(mensaje);
+    } finally {
+      // Habilita el botón después de 1.5 segundos
+      setTimeout(() => {
+        setComentarioBtnDisabled(false);
+      }, 1500);
     }
   };
+
 
   // Función para publicar una respuesta a un comentario existente
   const handleResponder = async (parentId) => {
@@ -253,7 +255,11 @@ const DetalleNoticias = () => {
               value={nuevoComentario}
               onChange={(e) => setNuevoComentario(e.target.value)}
             />
-            <button className="btn btn-primary mb-3" onClick={handlePublicarComentario}>
+            <button
+              className="btn btn-primary mb-3"
+              onClick={handlePublicarComentario}
+              disabled={comentarioBtnDisabled}
+            >
               Publicar comentario
             </button>
           </>

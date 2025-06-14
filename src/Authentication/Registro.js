@@ -118,7 +118,7 @@ const UsuarioForm = () => {
       // Redirigir al login después de 3 segundos
       setTimeout(() => {
         navigate("/login");
-      }, 3000);
+      }, 1500);
 
     } catch (err) {
       // Si hay respuesta con errores del backend, procesarlos para mostrarlos
@@ -149,10 +149,7 @@ const UsuarioForm = () => {
     return key === 'receive_news' ? 'recibir_novedades' : key;
   };
 
-  const isFormValid = () => {
-    const errors = validar();
-    return Object.keys(errors).length === 0;
-  };
+  
 
   return (
     <form onSubmit={handleSubmit} className="container login-container slide-down-fade">
@@ -249,7 +246,7 @@ const UsuarioForm = () => {
       </div>
 
       {/* Botón para enviar formulario */}
-      <button type="submit" className="login-btn" disabled={!isFormValid()}>
+      <button type="submit" className="login-btn">
         Registrar
       </button>
 
