@@ -21,7 +21,8 @@ const Adoptar = () => {
   const [submitting, setSubmitting] = useState(false);
   // Estado para mostrar errores al usuario
   const [error, setError] = useState(null);
-
+  // URL base de Cloudinary para cargar imágenes
+  const cloudinaryBaseUrl = "https://res.cloudinary.com/dznk2nvh5"; 
   // Hook personalizado para obtener usuario actual y su estado de carga o error
   const { user, loading: userLoading, error: userError } = useCurrentUser();
 
@@ -97,7 +98,7 @@ const Adoptar = () => {
       <div className="adoptar-grid">
         {/* Parte izquierda con información e imagen del animal */}
         <div className="adoptar-left">
-          <img src={animal.imagen} alt={animal.nombre} className="adoptar-img" />
+          <img src={`${cloudinaryBaseUrl}/${animal.imagen}`} alt={animal.nombre} className="adoptar-img" />
           <div className="adoptar-info">
             <h2>{animal.nombre}</h2>
             <p><strong>Edad:</strong> {new Date().getFullYear() - new Date(animal.fecha_nacimiento).getFullYear()} años</p>

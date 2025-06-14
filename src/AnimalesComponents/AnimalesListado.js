@@ -24,7 +24,8 @@ const CatGallery = () => {
   const navigate = useNavigate();
   // Número de gatos que se muestran por página
   const gatosPorPagina = 12;
-
+  // URL base de Cloudinary para cargar imágenes
+  const cloudinaryBaseUrl = "https://res.cloudinary.com/dznk2nvh5"; 
   // Desestructuramos el contexto de carga para activar/desactivar el spinner global
   const { loading, setLoading } = useLoading();
 
@@ -106,7 +107,7 @@ const CatGallery = () => {
               <div className="cat-image-container">
                 {/* Imagen del gato */}
                 <img
-                  src={gato.imagen}
+                  src={`${cloudinaryBaseUrl}/${gato.imagen}`}
                   alt={gato.nombre}
                   className="card-img-top cat-image"
                 />

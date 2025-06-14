@@ -14,7 +14,8 @@ const DetalleNoticias = () => {
   // Datos de autenticación del usuario (estado y token)
   const { isAuthenticated, token } = useAuth();
   const navigate = useNavigate();
-
+  // URL base de Cloudinary para cargar imágenes
+  const cloudinaryBaseUrl = "https://res.cloudinary.com/dznk2nvh5"; 
   // Estados locales para la noticia, comentarios, paginación, formularios y mensajes
   const [noticia, setNoticia] = useState(null);
   const [comentarios, setComentarios] = useState([]);
@@ -145,7 +146,7 @@ const DetalleNoticias = () => {
           <div className="border-start ps-3 d-flex align-items-start gap-2">
             {comentario.usuario_foto ? (
               <img
-                src={comentario.usuario_foto}
+                src={`${comentario.usuario_foto}`}
                 alt={comentario.usuario_username}
                 style={{
                   width: "40px",
@@ -218,7 +219,7 @@ const DetalleNoticias = () => {
         {/* Imagen y título con fecha de la noticia */}
         <div className="col-12 col-md-6 mb-4 mb-md-0">
           <img
-            src={noticia.imagen}
+            src={`${cloudinaryBaseUrl}/${noticia.imagen}`}
             alt={noticia.titulo}
             className="img-fluid rounded"
           />

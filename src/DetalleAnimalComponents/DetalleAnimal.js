@@ -21,7 +21,8 @@ const AnimalDetail = () => {
   
   // Estado local para guardar los datos del animal
   const [animal, setAnimal] = useState(null);
-  
+  // URL base de Cloudinary para cargar imágenes
+  const cloudinaryBaseUrl = "https://res.cloudinary.com/dznk2nvh5"; 
   useEffect(() => {
     setLoading(true); // Inicia la animación de carga global
     animalService
@@ -53,7 +54,7 @@ const AnimalDetail = () => {
         {/* Columna con la imagen del animal */}
         <div className="col-12 col-md-6 mb-4 mb-md-0">
           <img
-            src={animal.imagen}
+            src={`${cloudinaryBaseUrl}/${animal.imagen}`}
             alt={animal.nombre}
             className="img-fluid"
           />

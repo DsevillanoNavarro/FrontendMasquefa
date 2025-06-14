@@ -44,6 +44,9 @@ export default function Modal({ isOpen, onClose, type, item, onSave, onDelete })
   // Llama a la función onDelete para eliminar según tipo e item.
   const handleDelete = () => onDelete(type, item);
 
+  // URL base de Cloudinary para cargar imágenes
+  const cloudinaryBaseUrl = "https://res.cloudinary.com/dznk2nvh5"; 
+
   return (
     <div className="modal-wrapper" onClick={handleBackdropClick}>
       <div

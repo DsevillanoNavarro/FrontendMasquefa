@@ -43,7 +43,8 @@ export default function Profile() {
   const { setLoading: setGlobalLoading } = useLoading();
   // Estado para controlar configuración del modal (si está abierto, tipo y item)
   const [modalConfig, setModalConfig] = useState({ isOpen: false, type: null, item: null });
-
+  // URL base de Cloudinary para cargar imágenes
+  const cloudinaryBaseUrl = "https://res.cloudinary.com/dznk2nvh5"; 
   // Sincronizar el loading global con el loading del usuario actual
   useEffect(() => {
     setGlobalLoading(loading);
@@ -222,7 +223,7 @@ export default function Profile() {
           {/* Label para disparar input file (editable) */}
           <label htmlFor="foto_perfil" className="profile-picture-label">
             <img
-              src={`${process.env.REACT_APP_BACK_URL}${user.foto_perfil}`} // Foto de perfil
+             src={`${cloudinaryBaseUrl}/${user.foto_perfil}`} // Foto de perfil
               alt="Foto de perfil"
               className="profile-picture-img"
             />
@@ -297,7 +298,7 @@ export default function Profile() {
           <div className="profile-card-grid">
             {adopciones.map(a => (
               <div key={a.id} className="profile-card">
-                <img src={a.animal?.imagen || ''} alt={a.animal?.nombre} className="profile-card-img" />
+                <img src={`${cloudinaryBaseUrl}/${a.animal?.imagen || ''}`} alt={a.animal?.nombre} className="profile-card-img" />
                 <div className="profile-card-body">
                   <h3>{a.animal?.nombre || '—'}</h3>
                   <p>Estado: <span>{a.aceptada}</span></p>

@@ -18,6 +18,9 @@ const NoticiasRecientes = () => {
   // Número de noticias a mostrar por página
   const noticiasPorPagina = 6;
 
+  // URL base de Cloudinary para cargar imágenes
+  const cloudinaryBaseUrl = "https://res.cloudinary.com/dznk2nvh5"; 
+
   // Accede al estado y función para cambiar el estado de carga global
   const { loading, setLoading } = useLoading();
 
@@ -117,7 +120,7 @@ const NoticiasRecientes = () => {
             <div className="card noticia-card border-0">
               <div className="noticia-image-container short-height">
                 <img
-                  src={noticia.imagen}
+                  src={`${cloudinaryBaseUrl}/${noticia.imagen}`}
                   alt={noticia.titulo}
                   className="card-img-top noticia-image"
                 />
