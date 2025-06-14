@@ -251,8 +251,8 @@ const UsuarioForm = () => {
 
       {/* Botón para enviar formulario */}
       <button type="submit" className="login-btn" disabled={isSubmitting}>
-        {isSubmitting ? "Registrando..." : "Registrar"}
-      </button>
+      {isSubmitting ? "Registrando..." : "Registrar"}
+    </button>
 
       {/* Mensaje de éxito */}
       {successMessage && (
