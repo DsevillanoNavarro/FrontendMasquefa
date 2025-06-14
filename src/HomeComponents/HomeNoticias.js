@@ -6,7 +6,8 @@ import "./HomeNoticias.css";                            // Estilos específicos 
 const NoticiasRecientes = () => {
   const [noticias, setNoticias] = useState([]);       // Estado local para almacenar las noticias
   const navigate = useNavigate();                       // Hook para navegar entre rutas
-
+  // URL base de Cloudinary para cargar imágenes
+  const cloudinaryBaseUrl = "https://res.cloudinary.com/dznk2nvh5"; 
   // useEffect para cargar las noticias una sola vez al montar el componente
   useEffect(() => {
     noticiaService.getNoticias().then((res) => {      // Llamada al servicio para obtener noticias
@@ -27,7 +28,7 @@ const NoticiasRecientes = () => {
               {/* Contenedor para la imagen de la noticia */}
               <div className="noticia-image-container short-height">
                 <img
-                  src={noticia.imagen}                      // Imagen de la noticia
+                  src={`${cloudinaryBaseUrl}/${noticia.imagen}`}
                   alt={noticia.titulo}                      // Texto alternativo accesible
                   className="card-img-top noticia-image"
                 />

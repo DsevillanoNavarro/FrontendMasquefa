@@ -15,6 +15,9 @@ const CatGallery = () => {
   // Inicializamos navigate para poder navegar programáticamente a otras rutas
   const navigate = useNavigate();
 
+  // URL base de Cloudinary para cargar imágenes
+  const cloudinaryBaseUrl = "https://res.cloudinary.com/dznk2nvh5"; 
+
   // useEffect para cargar los datos cuando el componente se monta
   useEffect(() => {
     setLoading(true);  // Indicamos que estamos cargando datos
@@ -51,7 +54,7 @@ const CatGallery = () => {
               <div className="cat-image-container">
                 {/* Imagen del gato con alt para accesibilidad */}
                 <img
-                  src={gato.imagen}
+                  src={`${cloudinaryBaseUrl}/${gato.imagen}`}
                   alt={gato.nombre}
                   className="card-img-top cat-image"
                 />
