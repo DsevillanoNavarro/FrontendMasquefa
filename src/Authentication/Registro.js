@@ -124,6 +124,7 @@ const UsuarioForm = () => {
       }, 1500);
 
     } catch (err) {
+      setIsSubmitting(false);
       // Si hay respuesta con errores del backend, procesarlos para mostrarlos
       if (err.response?.data) {
         setIsSubmitting(false);
