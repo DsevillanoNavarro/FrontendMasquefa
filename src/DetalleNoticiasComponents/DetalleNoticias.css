@@ -160,3 +160,19 @@ textarea.form-control:focus {
   word-break: break-word;    /* Rompe palabras largas en varias líneas */
   white-space: pre-wrap;     /* Mantiene saltos de línea y permite múltiples líneas */
 }
+
+
+.iniciar-sesion-btn {
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.iniciar-sesion-btn:hover {
+  background-color: #0056b3;
+}

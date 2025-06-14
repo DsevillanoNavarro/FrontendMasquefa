@@ -266,13 +266,11 @@ const DetalleNoticias = () => {
         ) : (
           <p>
             <button
-              className="btn btn-link p-0"
+              className="iniciar-sesion-btn"
               onClick={handleLoginRedirect}
-              style={{ textDecoration: "underline" }}
             >
-              Inicia sesión
-            </button>{" "}
-            para comentar.
+              Inicia sesión para comentar
+            </button>
           </p>
         )}
 
