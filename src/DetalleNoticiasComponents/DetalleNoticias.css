@@ -163,6 +163,9 @@ textarea.form-control:focus {
 
 
 .iniciar-sesion-btn {
+  all: unset; /* Limpia todos los estilos por defecto */
+  cursor: pointer;
+
   background-color: #007bff;
   color: white;
   text-decoration: none;
@@ -171,7 +174,9 @@ textarea.form-control:focus {
   display: inline-block;
   font-weight: 600;
   transition: background-color 0.3s;
+  border: none; /* Asegura que no haya borde */
 }
+
 
 .iniciar-sesion-btn:hover {
   background-color: #0056b3;
