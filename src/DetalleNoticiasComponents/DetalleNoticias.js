@@ -38,20 +38,19 @@ const DetalleNoticias = () => {
 
   // Efecto para cargar comentarios de la noticia
   useEffect(() => {
-    if (!id) return;
+    if (!id || !isAuthenticated) return; // <-- añade la condición aquí
     setComentariosLoading(true);
     comentarioService
-      .getComentariosPorNoticia(id) // obtenemos comentarios del API
+      .getComentariosPorNoticia(id)
       .then((comments) => {
-        // Validamos que sea un array y lo guardamos
         setComentarios(Array.isArray(comments) ? comments : []);
       })
       .catch((err) => {
         console.error(err);
-        setComentarioError("Error al cargar comentarios"); // mensaje de error
+        setComentarioError("Error al cargar comentarios");
       })
       .finally(() => setComentariosLoading(false));
-  }, [id]);
+  }, [id, isAuthenticated]);
 
   // Redirige a login si el usuario no está autenticado
   const handleLoginRedirect = () => {
@@ -241,13 +240,11 @@ const DetalleNoticias = () => {
         </div>
       </div>
 
-      {/* Sección de comentarios */}
-      <section className="comentarios mt-5">
-        <h3>Comentarios</h3>
+      {isAuthenticated ? (
+          <section className="comentarios mt-5">
+            <h3>Comentarios</h3>
 
-        {/* Formulario para nuevo comentario */}
-        {isAuthenticated ? (
-          <>
+            {/* Formulario para nuevo comentario */}
             <textarea
               className="form-control mb-3"
               placeholder="Escribe tu comentario..."
@@ -262,36 +259,31 @@ const DetalleNoticias = () => {
             >
               Publicar comentario
             </button>
-          </>
+
+            {/* Mostrar errores o éxito en comentarios */}
+            {comentarioError && <div className="alert alert-danger">{comentarioError}</div>}
+            {comentarioSuccess && <div className="alert alert-success">{comentarioSuccess}</div>}
+
+            {/* Spinner local de carga comentarios */}
+            {comentariosLoading ? (
+              <div>Cargando comentarios...</div>
+            ) : (
+              <>
+                {comentarios.length > 0 ? (
+                  renderComentarios(comentarios)
+                ) : (
+                  <p>No hay comentarios aún.</p>
+                )}
+              </>
+            )}
+          </section>
         ) : (
-          <p>
-            <button
-              className="iniciar-sesion-btn"
-              onClick={handleLoginRedirect}
-            >
+          <p className="mt-5">
+            <button className="iniciar-sesion-btn" onClick={handleLoginRedirect}>
               Inicia sesión para comentar
             </button>
           </p>
         )}
-
-        {/* Mostrar errores o éxito en comentarios */}
-        {comentarioError && <div className="alert alert-danger">{comentarioError}</div>}
-        {comentarioSuccess && <div className="alert alert-success">{comentarioSuccess}</div>}
-
-        {/* Spinner local de carga comentarios */}
-        {comentariosLoading ? (
-          <div>Cargando comentarios...</div>
-        ) : (
-          <>
-            {/* Renderizamos todos los comentarios con respuestas anidadas */}
-            {comentarios.length > 0 ? (
-              renderComentarios(comentarios)
-            ) : (
-              <p>No hay comentarios aún.</p>
-            )}
-          </>
-        )}
-      </section>
     </div>
   );
 };
