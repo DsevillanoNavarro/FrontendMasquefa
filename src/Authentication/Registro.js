@@ -149,6 +149,11 @@ const UsuarioForm = () => {
     return key === 'receive_news' ? 'recibir_novedades' : key;
   };
 
+  const isFormValid = () => {
+    const errors = validar();
+    return Object.keys(errors).length === 0;
+  };
+
   return (
     <form onSubmit={handleSubmit} className="container login-container slide-down-fade">
       <h2 className="login-title">Crear Usuario</h2>
@@ -244,7 +249,7 @@ const UsuarioForm = () => {
       </div>
 
       {/* Botón para enviar formulario */}
-      <button type="submit" className="login-btn">
+      <button type="submit" className="login-btn" disabled={!isFormValid()}>
         Registrar
       </button>
 
