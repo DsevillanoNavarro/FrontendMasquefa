@@ -25,9 +25,7 @@ const UsuarioForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
   // Hook para redirigir después del registro exitoso
   const navigate = useNavigate();
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   // Actualiza el estado del formulario según cambios en los inputs
   const handleChange = e => {
     const { name, type, checked, value } = e.target;
@@ -92,9 +90,11 @@ const UsuarioForm = () => {
 
   // Función que maneja el envío del formulario
   const handleSubmit = async e => {
+
     e.preventDefault();  // evitar recarga de página
+    setIsButtonDisabled(true);
+    setTimeout(() => setIsButtonDisabled(false), 1500);
     setError('');        // limpiar errores generales
-    setIsSubmitting(true);
     // Ejecutar validación
     const errores = validar();
     setFormErrors(errores); // actualizar errores de validación
@@ -120,14 +120,11 @@ const UsuarioForm = () => {
       // Redirigir al login después de 3 segundos
       setTimeout(() => {
         navigate("/login");
-        setIsSubmitting(false);
       }, 1500);
 
     } catch (err) {
-      setIsSubmitting(false);
       // Si hay respuesta con errores del backend, procesarlos para mostrarlos
       if (err.response?.data) {
-        setIsSubmitting(false);
         const data = err.response.data;
         const fieldErrors = {};
 
@@ -251,9 +248,9 @@ const UsuarioForm = () => {
       </div>
 
       {/* Botón para enviar formulario */}
-      <button type="submit" className="login-btn" disabled={isSubmitting}>
-      {isSubmitting ? "Registrando..." : "Registrar"}
-    </button>
+      <button type="submit" className="login-btn" disabled={isButtonDisabled}>
+        Registrar
+      </button>
 
       {/* Mensaje de éxito */}
       {successMessage && (
