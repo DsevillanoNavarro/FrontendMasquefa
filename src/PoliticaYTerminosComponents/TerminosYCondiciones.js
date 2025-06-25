@@ -57,7 +57,7 @@ const TerminosYCondiciones = () => {
 
       {/* Información de contacto para dudas o consultas */}
       <p>
-        Para cualquier duda, contacta a <a href="mailto:animalistesmasquefabusiness@gmail.com">animalistesmasquefabusiness@gmail.com</a>.
+        Para cualquier duda, contacta a <a href="mailto:animalistesmasquefa@gmail.com">animalistesmasquefa@gmail.com</a>.
       </p>
 
       {/* Enlace para volver a la página de registro, con margen superior para separación */}

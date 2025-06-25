@@ -77,15 +77,12 @@ const Contacto = () => {
           <h5 className="fw-semibold mb-3">¿Quieres unirte a nosotros?</h5>
 
           <p className="mb-1 text-muted">📧 Correo electrónico</p>
-          <a href="mailto:masquefaanimalistes@gmail.com" className="text-dark fw-medium">
-            masquefaanimalistes@gmail.com
+          <a href="mailto:animalistesmasquefa@gmail.com" className="text-dark fw-medium">
+            animalistesmasquefa@gmail.com
           </a>
 
           <p className="mt-4 mb-1 text-muted">📍 Dirección</p>
-          <p>Carrer Major 12, Masquefa, Barcelona</p>
-
-          <p className="mb-1 text-muted">📞 Teléfono</p>
-          <p>+34 600 123 456</p>
+          <p>Carrer Sant Antoni, Masquefa, Barcelona</p>
 
           <p className="mb-1 text-muted">🔗 Redes sociales</p>
           <a href="https://www.instagram.com/animalistesmasquefa" target="_blank" rel="noreferrer">Instagram</a><br />

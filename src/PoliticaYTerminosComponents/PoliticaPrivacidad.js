@@ -55,7 +55,7 @@ const PoliticaPrivacidad = () => {
       {/* Sección 5: Derechos del usuario */}
       <h3>5. Derechos del Usuario</h3>
       <p>
-        Puedes ejercer en cualquier momento tus derechos de acceso, rectificación, cancelación y oposición enviando un correo a <a href="mailto:animalistesmasquefabusiness@gmail.com">animalistesmasquefabusiness@gmail.com</a>.
+        Puedes ejercer en cualquier momento tus derechos de acceso, rectificación, cancelación y oposición enviando un correo a <a href="mailto:animalistesmasquefa@gmail.com">animalistesmasquefa@gmail.com</a>.
       </p>
 
       {/* Sección 6: Seguridad de los datos */}
@@ -66,7 +66,7 @@ const PoliticaPrivacidad = () => {
 
       {/* Sección 7: Información de contacto */}
       <h3>7. Contacto</h3>
-      <p>Para cualquier consulta relacionada con tu privacidad, escríbenos a <a href="mailto:animalistesmasquefabusiness@gmail.com">animalistesmasquefabusiness@gmail.com</a>.</p>
+      <p>Para cualquier consulta relacionada con tu privacidad, escríbenos a <a href="mailto:animalistesmasquefa@gmail.com">animalistesmasquefa@gmail.com</a>.</p>
 
       {/* Enlace para volver a la página de registro, con margen superior para separación */}
       <div style={{ marginTop: '2rem' }}>
