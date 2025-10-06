@@ -1,3 +1,12 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Bloquear rutas sensibles o irrelevantes para SEO
+Disallow: /perfil
+Disallow: /login
+Disallow: /registro
+Disallow: /reset-password
+Disallow: /forgot-password
+
+# Indicar la ubicación del sitemap
+Sitemap: https://animalistesmasquefa.org/sitemap.xml
