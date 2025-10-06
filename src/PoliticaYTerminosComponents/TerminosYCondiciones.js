@@ -1,72 +1,69 @@
 import React from 'react';
 
-// Componente funcional que muestra la página de Términos y Condiciones de Uso
 const TerminosYCondiciones = () => {
   return (
-    // Contenedor principal con clases para estilos y animación, con ancho máximo y padding personalizados
     <div className="container login-container slide-down-fade" style={{ maxWidth: "800px", padding: "2rem" }}>
-      
-      {/* Título principal */}
       <h2 className="login-title">Términos y Condiciones de Uso</h2>
+      <p><strong>Última actualización:</strong> octubre 2025</p>
 
-      {/* Fecha de última actualización */}
-      <p><strong>Última actualización:</strong> mayo 2025</p>
-
-      {/* Introducción general a los términos */}
       <p>
-        Al registrarte y utilizar esta aplicación, aceptas los siguientes términos. Si no estás de acuerdo, por favor no utilices la plataforma.
+        El acceso y uso del sitio web <strong>Animales Masquefa</strong> implica la aceptación plena de estos Términos y Condiciones. Si no estás de acuerdo con alguno de los puntos, te recomendamos no utilizar la plataforma.
       </p>
 
-      {/* Sección 1: Descripción del servicio */}
-      <h3>1. Descripción del Servicio</h3>
+      <h3>1. Identificación del titular</h3>
       <p>
-        Esta plataforma permite la gestión de adopciones de animales, así como el seguimiento de noticias relacionadas con la protectora.
+        Titular: <strong>Animales Masquefa</strong><br />
+        Correo electrónico: <a href="mailto:animalistesmasquefabusiness@gmail.com">animalistesmasquefabusiness@gmail.com</a><br />
+        Finalidad: plataforma informativa y de gestión de adopciones de animales.
       </p>
 
-      {/* Sección 2: Requisitos para el registro */}
-      <h3>2. Requisitos para el Registro</h3>
+      <h3>2. Objeto del sitio</h3>
       <p>
-        Solo pueden registrarse personas mayores de edad que proporcionen información veraz y completa.
+        El sitio web ofrece información sobre animales en adopción, noticias y servicios de contacto relacionados con la actividad protectora.
       </p>
 
-      {/* Sección 3: Obligaciones del usuario */}
-      <h3>3. Obligaciones del Usuario</h3>
+      <h3>3. Condiciones de uso</h3>
       <ul>
-        <li>No realizar adopciones falsas o con fines fraudulentos.</li>
-        <li>Respetar a otros usuarios y al personal de la protectora.</li>
-        <li>Actualizar sus datos si hay cambios.</li>
+        <li>El usuario se compromete a utilizar la web de forma lícita, sin realizar actividades fraudulentas o contrarias a la buena fe.</li>
+        <li>Queda prohibido el envío de contenido ofensivo, spam o información falsa.</li>
+        <li>Los datos introducidos en formularios deben ser veraces y actualizados.</li>
       </ul>
 
-      {/* Sección 4: Suspensión de cuentas */}
-      <h3>4. Suspensión de Cuentas</h3>
+      <h3>4. Propiedad intelectual</h3>
       <p>
-        Nos reservamos el derecho de suspender cuentas que incumplan estos términos o que realicen un uso inadecuado de la aplicación.
+        Todos los textos, imágenes, logotipos, diseños y código fuente son propiedad de Animales Masquefa o se utilizan con autorización. Queda prohibida su reproducción total o parcial sin consentimiento expreso.
       </p>
 
-      {/* Sección 5: Propiedad intelectual */}
-      <h3>5. Propiedad Intelectual</h3>
+      <h3>5. Exclusión de responsabilidad</h3>
       <p>
-        Todos los contenidos, salvo los proporcionados por usuarios, son propiedad de la organización. Está prohibida su reproducción sin permiso.
+        Animales Masquefa no se responsabiliza de los posibles daños derivados del mal uso del sitio web, interrupciones del servicio o enlaces externos de terceros.
       </p>
 
-      {/* Sección 6: Cambios en los términos */}
-      <h3>6. Cambios en los Términos</h3>
+      <h3>6. Protección de datos personales</h3>
       <p>
-        Estos términos pueden actualizarse en el futuro. Se notificará a los usuarios cuando sea relevante.
+        El tratamiento de datos personales se realiza conforme a la <a href="/politica-privacidad">Política de Privacidad</a>, en cumplimiento del RGPD y la LOPDGDD.
       </p>
 
-      {/* Información de contacto para dudas o consultas */}
+      <h3>7. Enlaces a terceros</h3>
       <p>
-        Para cualquier duda, contacta a <a href="mailto:animalistesmasquefa@gmail.com">animalistesmasquefa@gmail.com</a>.
+        Este sitio puede contener enlaces a webs externas. No nos hacemos responsables del contenido o las políticas de privacidad de dichas páginas.
       </p>
 
-      {/* Enlace para volver a la página de registro, con margen superior para separación */}
+      <h3>8. Modificación de los términos</h3>
+      <p>
+        Nos reservamos el derecho a modificar estos Términos y Condiciones en cualquier momento. Los cambios se publicarán en esta misma página.
+      </p>
+
+      <h3>9. Legislación aplicable</h3>
+      <p>
+        Estos Términos se rigen por la legislación española. Cualquier conflicto se resolverá ante los tribunales de Barcelona, salvo disposición legal imperativa en contrario.
+      </p>
+
       <div style={{ marginTop: '2rem' }}>
-        <a href="/registro" className="login-link">← Volver al registro</a>
+        <a href="/" className="login-link">← Volver al inicio</a>
       </div>
     </div>
   );
 };
 
-// Exporta el componente para uso en otras partes de la aplicación
 export default TerminosYCondiciones;

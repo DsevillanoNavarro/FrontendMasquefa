@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Crawl-delay: 10
 
 # Bloquear rutas sensibles o irrelevantes para SEO
 Disallow: /perfil

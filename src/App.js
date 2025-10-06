@@ -26,6 +26,8 @@ import ResetPassword from "./pages/ResetPassword";
 import ForgotPassword from './pages/ForgotPassword';
 import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
 import TerminosYCondiciones from './pages/TerminosYCondiciones';
+import PoliticaCookies from './PoliticaYTerminosComponents/PoliticaCookies';
+import CookieConsent from "react-cookie-consent";
 
 // Importación de utilidades y contextos
 import ScrollToTop from './contexts/ScrollToTop';
@@ -102,6 +104,7 @@ function AppContent() {
             <Route path="/resetPassword/:uidb64/:token" element={<ResetPassword />} />
             <Route path="/privacidad" element={<PoliticaPrivacidad />} />
             <Route path="/terminos" element={<TerminosYCondiciones />} />
+            <Route path="/politica-cookies" element={<PoliticaCookies />} />
 
             {/* Rutas protegidas que requieren autenticación */}
             <Route element={<RequireAuth />}>
@@ -113,6 +116,19 @@ function AppContent() {
             {/* Ruta catch-all para páginas no encontradas */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+
+          <CookieConsent
+            location="bottom"
+            buttonText="Aceptar"
+            declineButtonText="Rechazar"
+            cookieName="animalesmasquefa_cookie_consent"
+            style={{ background: "#2B373B" }}
+            buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+            expires={150}
+          >
+            Usamos cookies para mejorar tu experiencia y analizar el tráfico.{" "}
+            <a href="/politica-cookies" style={{ color: "#ffd700" }}>Leer más</a>.
+          </CookieConsent>
         </main>
         {/* Pie de página fijo abajo */}
         <Footer />

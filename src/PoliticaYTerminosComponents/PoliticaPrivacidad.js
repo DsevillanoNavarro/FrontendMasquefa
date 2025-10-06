@@ -1,80 +1,81 @@
 import React from 'react';
 
-// Componente funcional que muestra la página de Política de Privacidad
 const PoliticaPrivacidad = () => {
   return (
-    // Contenedor principal con clases para estilos y animación, ancho máximo y padding personalizados
     <div className="container login-container slide-down-fade" style={{ maxWidth: "800px", padding: "2rem" }}>
-      
-      {/* Título principal */}
       <h2 className="login-title">Política de Privacidad</h2>
+      <p><strong>Última actualización:</strong> octubre 2025</p>
 
-      {/* Fecha de última actualización */}
-      <p><strong>Última actualización:</strong> mayo 2025</p>
-
-      {/* Introducción a la política de privacidad */}
       <p>
-        En esta aplicación nos tomamos muy en serio la privacidad de tus datos. Esta política describe cómo recopilamos, utilizamos y protegemos tu información personal.
+        En <strong>Animales Masquefa</strong> nos tomamos muy en serio la privacidad de tus datos personales. Esta Política cumple con el 
+        Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD) y explica cómo recopilamos, usamos y protegemos tu información.
       </p>
 
-      {/* Sección 1: Datos que recogemos */}
-      <h3>1. Datos que Recogemos</h3>
+      <h3>1. Responsable del tratamiento</h3>
       <p>
-        Durante el registro o uso de la aplicación, podemos solicitar los siguientes datos:
+        <strong>Nombre:</strong> Animales Masquefa<br />
+        <strong>Email de contacto:</strong> <a href="mailto:animalistesmasquefabusiness@gmail.com">animalistesmasquefabusiness@gmail.com</a><br />
+        <strong>Finalidad:</strong> gestión de adopciones y comunicación con usuarios interesados en la protección animal.
       </p>
+
+      <h3>2. Datos que recogemos</h3>
+      <p>Podemos recopilar los siguientes datos personales:</p>
       <ul>
         <li>Nombre y apellidos</li>
-        <li>Nombre de usuario</li>
         <li>Correo electrónico</li>
-        <li>Preferencia para recibir noticias</li>
-        <li>Información relacionada con solicitudes de adopción</li>
+        <li>Datos de contacto y preferencias</li>
+        <li>Información sobre solicitudes de adopción</li>
+        <li>Datos técnicos de navegación (cookies, IP, navegador, etc.)</li>
       </ul>
 
-      {/* Sección 2: Finalidad del tratamiento de datos */}
-      <h3>2. Finalidad del Tratamiento</h3>
-      <p>Usamos tus datos únicamente para:</p>
+      <h3>3. Finalidad y base legal</h3>
+      <p>Tratamos tus datos con las siguientes finalidades:</p>
       <ul>
-        <li>Gestionar el acceso a tu cuenta</li>
-        <li>Procesar solicitudes de adopción</li>
-        <li>Enviar comunicaciones relacionadas con el servicio</li>
-        <li>Informarte de noticias si lo has solicitado</li>
+        <li>Gestionar tu cuenta y tus solicitudes de adopción.</li>
+        <li>Comunicaciones relacionadas con tu actividad en la plataforma.</li>
+        <li>Envío de noticias o boletines (si lo autorizas).</li>
+        <li>Mejorar la seguridad y la funcionalidad de la web.</li>
       </ul>
+      <p>La base legal es tu consentimiento explícito y la ejecución del servicio solicitado.</p>
 
-      {/* Sección 3: Base legal para el tratamiento de datos */}
-      <h3>3. Base Legal</h3>
+      <h3>4. Conservación de los datos</h3>
       <p>
-        Recopilamos datos sobre la base de tu consentimiento explícito, que otorgas al aceptar esta política durante el registro.
+        Conservaremos tus datos mientras mantengas tu cuenta activa o mientras sea necesario para cumplir con las finalidades indicadas. 
+        Una vez cancelada la cuenta, los datos se eliminarán o se anonimizarán conforme a la ley.
       </p>
 
-      {/* Sección 4: Conservación de los datos */}
-      <h3>4. Conservación de los Datos</h3>
+      <h3>5. Derechos del usuario</h3>
       <p>
-        Conservamos tus datos mientras tengas una cuenta activa o mientras sean necesarios para cumplir con las finalidades indicadas.
+        Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad enviando un 
+        correo a <a href="mailto:animalistesmasquefabusiness@gmail.com">animalistesmasquefabusiness@gmail.com</a>.  
+        También tienes derecho a presentar una reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos (AEPD)</a>.
       </p>
 
-      {/* Sección 5: Derechos del usuario */}
-      <h3>5. Derechos del Usuario</h3>
+      <h3>6. Cesión y transferencia de datos</h3>
       <p>
-        Puedes ejercer en cualquier momento tus derechos de acceso, rectificación, cancelación y oposición enviando un correo a <a href="mailto:animalistesmasquefa@gmail.com">animalistesmasquefa@gmail.com</a>.
+        No compartimos tus datos personales con terceros, salvo obligación legal o proveedores que actúen como encargados del tratamiento (por ejemplo, hosting o servicios de correo electrónico), siempre bajo contrato conforme al RGPD.
       </p>
 
-      {/* Sección 6: Seguridad de los datos */}
-      <h3>6. Seguridad</h3>
+      <h3>7. Seguridad de los datos</h3>
       <p>
-        Aplicamos medidas técnicas y organizativas para proteger tus datos contra accesos no autorizados.
+        Aplicamos medidas técnicas y organizativas adecuadas para proteger tus datos frente a accesos no autorizados, pérdida o destrucción.
       </p>
 
-      {/* Sección 7: Información de contacto */}
-      <h3>7. Contacto</h3>
-      <p>Para cualquier consulta relacionada con tu privacidad, escríbenos a <a href="mailto:animalistesmasquefa@gmail.com">animalistesmasquefa@gmail.com</a>.</p>
+      <h3>8. Cookies</h3>
+      <p>
+        Esta web utiliza cookies técnicas y analíticas. Puedes consultar información detallada en nuestra <a href="/politica-cookies">Política de Cookies</a>.
+      </p>
 
-      {/* Enlace para volver a la página de registro, con margen superior para separación */}
+      <h3>9. Modificaciones de la política</h3>
+      <p>
+        Podemos actualizar esta política cuando sea necesario. La versión vigente estará siempre disponible en esta página.
+      </p>
+
       <div style={{ marginTop: '2rem' }}>
-        <a href="/registro" className="login-link">← Volver al registro</a>
+        <a href="/" className="login-link">← Volver al inicio</a>
       </div>
     </div>
   );
 };
 
-// Exporta el componente para que pueda ser usado en otras partes de la app
 export default PoliticaPrivacidad;
