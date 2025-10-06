@@ -118,17 +118,60 @@ function AppContent() {
           </Routes>
 
           <CookieConsent
-            location="bottom"
-            buttonText="Aceptar"
-            declineButtonText="Rechazar"
-            cookieName="animalesmasquefa_cookie_consent"
-            style={{ background: "#2B373B" }}
-            buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
-            expires={150}
-          >
-            Usamos cookies para mejorar tu experiencia y analizar el tráfico.{" "}
-            <a href="/politica-cookies" style={{ color: "#ffd700" }}>Leer más</a>.
-          </CookieConsent>
+        location="bottom"
+        buttonText="Aceptar"
+        declineButtonText="Rechazar"
+        cookieName="animalesmasquefa_cookie_consent"
+        style={{
+          background: "rgba(255, 255, 255, 0.9)",
+          backdropFilter: "blur(10px)",
+          color: "#222",
+          fontSize: "14px",
+          borderTop: "1px solid rgba(0,0,0,0.05)",
+          boxShadow: "0 -4px 20px rgba(0,0,0,0.08)",
+          padding: "14px 24px",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "12px",
+          fontFamily: "'Poppins', system-ui, sans-serif",
+        }}
+        buttonStyle={{
+          background: "#2b6ef6",
+          color: "#fff",
+          fontWeight: 600,
+          borderRadius: "8px",
+          fontSize: "13px",
+          padding: "8px 16px",
+          boxShadow: "0 3px 8px rgba(43,110,246,0.25)",
+          border: "none",
+        }}
+        declineButtonStyle={{
+          background: "transparent",
+          color: "#333",
+          border: "1px solid rgba(0,0,0,0.1)",
+          borderRadius: "8px",
+          fontSize: "13px",
+          padding: "8px 16px",
+        }}
+        enableDeclineButton
+        expires={150}
+      >
+        Usamos cookies para mejorar tu experiencia y analizar el tráfico.{" "}
+        <a
+          href="/politica-cookies"
+          style={{
+            color: "#2b6ef6",
+            textDecoration: "underline",
+            textUnderlineOffset: "3px",
+            fontWeight: 500,
+          }}
+        >
+          Leer más
+        </a>
+        .
+      </CookieConsent>
         </main>
         {/* Pie de página fijo abajo */}
         <Footer />

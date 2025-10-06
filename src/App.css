@@ -52,3 +52,90 @@ body.no-animations *::after {
   animation: none !important;     /* Cancela todas las animaciones */
   transition: none !important;    /* Cancela todas las transiciones */
 }
+
+
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  max-width: 400px;
+  width: calc(100% - 40px);
+  padding: 14px 18px;
+  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  color: #222;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cookie-banner.hide {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.cookie-banner p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cookie-banner a {
+  color: #2b6ef6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+.cookie-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cookie-btn {
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cookie-btn-primary {
+  background: #2b6ef6;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(43, 110, 246, 0.2);
+}
+
+.cookie-btn-primary:hover {
+  background: #1f5ee0;
+}
+
+.cookie-btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.cookie-btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 600px) {
+  .cookie-banner {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    bottom: 16px;
+    width: 90%;
+  }
+}
