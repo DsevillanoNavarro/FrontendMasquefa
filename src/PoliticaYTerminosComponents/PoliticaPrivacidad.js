@@ -14,7 +14,7 @@ const PoliticaPrivacidad = () => {
       <h3>1. Responsable del tratamiento</h3>
       <p>
         <strong>Nombre:</strong> Animales Masquefa<br />
-        <strong>Email de contacto:</strong> <a href="mailto:animalistesmasquefabusiness@gmail.com">animalistesmasquefabusiness@gmail.com</a><br />
+        <strong>Email de contacto:</strong> <a href="mailto:animalistesmasquefa@gmail.com">animalistesmasquefa@gmail.com</a><br />
         <strong>Finalidad:</strong> gestión de adopciones y comunicación con usuarios interesados en la protección animal.
       </p>
 
@@ -47,7 +47,7 @@ const PoliticaPrivacidad = () => {
       <h3>5. Derechos del usuario</h3>
       <p>
         Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad enviando un 
-        correo a <a href="mailto:animalistesmasquefabusiness@gmail.com">animalistesmasquefabusiness@gmail.com</a>.  
+        correo a <a href="mailto:animalistesmasquefa@gmail.com">animalistesmasquefa@gmail.com</a>.  
         También tienes derecho a presentar una reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos (AEPD)</a>.
       </p>
 

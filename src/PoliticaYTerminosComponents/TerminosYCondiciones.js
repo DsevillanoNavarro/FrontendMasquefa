@@ -13,7 +13,7 @@ const TerminosYCondiciones = () => {
       <h3>1. Identificación del titular</h3>
       <p>
         Titular: <strong>Animales Masquefa</strong><br />
-        Correo electrónico: <a href="mailto:animalistesmasquefabusiness@gmail.com">animalistesmasquefabusiness@gmail.com</a><br />
+        Correo electrónico: <a href="mailto:animalistesmasquefa@gmail.com">animalistesmasquefa@gmail.com</a><br />
         Finalidad: plataforma informativa y de gestión de adopciones de animales.
       </p>
 
